@@ -2,9 +2,9 @@
 <net name="nvidia_ssd" version="10">
 	<layers>
 		<layer id="0" name="actual_input_1" type="Parameter" version="opset1">
-			<data element_type="f32" shape="10,3,300,300"/>
+			<data element_type="f16" shape="10,3,300,300"/>
 			<output>
-				<port id="0" precision="FP32">
+				<port id="0" precision="FP16">
 					<dim>10</dim>
 					<dim>3</dim>
 					<dim>300</dim>
@@ -13,9 +13,9 @@
 			</output>
 		</layer>
 		<layer id="1" name="BatchNormalization_1/mean/Fused_Mul_1098310985_const" type="Const" version="opset1">
-			<data element_type="f32" offset="0" shape="64,3,7,7" size="37632"/>
+			<data element_type="f16" offset="0" shape="64,3,7,7" size="18816"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>3</dim>
 					<dim>7</dim>
@@ -40,7 +40,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>150</dim>
@@ -49,9 +49,9 @@
 			</output>
 		</layer>
 		<layer id="3" name="data_add_10056/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="37632" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="18816" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -75,7 +75,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>150</dim>
@@ -93,7 +93,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>150</dim>
@@ -112,7 +112,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -121,9 +121,9 @@
 			</output>
 		</layer>
 		<layer id="7" name="BatchNormalization_5/mean/Fused_Mul_1099110993_const" type="Const" version="opset1">
-			<data element_type="f32" offset="37888" shape="64,64,1,1" size="16384"/>
+			<data element_type="f16" offset="18944" shape="64,64,1,1" size="8192"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -148,7 +148,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -157,9 +157,9 @@
 			</output>
 		</layer>
 		<layer id="9" name="data_add_1006710072/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="54272" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="27136" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -183,7 +183,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -201,7 +201,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -210,9 +210,9 @@
 			</output>
 		</layer>
 		<layer id="12" name="BatchNormalization_8/mean/Fused_Mul_1099510997_const" type="Const" version="opset1">
-			<data element_type="f32" offset="54528" shape="64,64,3,3" size="147456"/>
+			<data element_type="f16" offset="27264" shape="64,64,3,3" size="73728"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>64</dim>
 					<dim>3</dim>
@@ -237,7 +237,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -246,9 +246,9 @@
 			</output>
 		</layer>
 		<layer id="14" name="data_add_1007510080/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="201984" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="100992" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -272,7 +272,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -290,7 +290,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -299,9 +299,9 @@
 			</output>
 		</layer>
 		<layer id="17" name="BatchNormalization_11/mean/Fused_Mul_1099911001_const" type="Const" version="opset1">
-			<data element_type="f32" offset="202240" shape="256,64,1,1" size="65536"/>
+			<data element_type="f16" offset="101120" shape="256,64,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -326,7 +326,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -335,9 +335,9 @@
 			</output>
 		</layer>
 		<layer id="19" name="data_add_1008310088/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="267776" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="133888" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -361,7 +361,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -370,9 +370,9 @@
 			</output>
 		</layer>
 		<layer id="21" name="BatchNormalization_13/mean/Fused_Mul_1098710989_const" type="Const" version="opset1">
-			<data element_type="f32" offset="268800" shape="256,64,1,1" size="65536"/>
+			<data element_type="f16" offset="134400" shape="256,64,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -397,7 +397,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -406,9 +406,9 @@
 			</output>
 		</layer>
 		<layer id="23" name="data_add_1005910064/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="334336" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="167168" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -432,7 +432,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -456,7 +456,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -474,7 +474,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -483,9 +483,9 @@
 			</output>
 		</layer>
 		<layer id="27" name="BatchNormalization_17/mean/Fused_Mul_1100311005_const" type="Const" version="opset1">
-			<data element_type="f32" offset="335360" shape="64,256,1,1" size="65536"/>
+			<data element_type="f16" offset="167680" shape="64,256,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -510,7 +510,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -519,9 +519,9 @@
 			</output>
 		</layer>
 		<layer id="29" name="data_add_1009110096/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="400896" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="200448" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -545,7 +545,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -563,7 +563,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -572,9 +572,9 @@
 			</output>
 		</layer>
 		<layer id="32" name="BatchNormalization_20/mean/Fused_Mul_1100711009_const" type="Const" version="opset1">
-			<data element_type="f32" offset="401152" shape="64,64,3,3" size="147456"/>
+			<data element_type="f16" offset="200576" shape="64,64,3,3" size="73728"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>64</dim>
 					<dim>3</dim>
@@ -599,7 +599,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -608,9 +608,9 @@
 			</output>
 		</layer>
 		<layer id="34" name="data_add_1009910104/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="548608" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="274304" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -634,7 +634,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -652,7 +652,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -661,9 +661,9 @@
 			</output>
 		</layer>
 		<layer id="37" name="BatchNormalization_23/mean/Fused_Mul_1101111013_const" type="Const" version="opset1">
-			<data element_type="f32" offset="548864" shape="256,64,1,1" size="65536"/>
+			<data element_type="f16" offset="274432" shape="256,64,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -688,7 +688,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -697,9 +697,9 @@
 			</output>
 		</layer>
 		<layer id="39" name="data_add_1010710112/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="614400" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="307200" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -723,7 +723,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -747,7 +747,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -765,7 +765,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -774,9 +774,9 @@
 			</output>
 		</layer>
 		<layer id="43" name="BatchNormalization_27/mean/Fused_Mul_1101511017_const" type="Const" version="opset1">
-			<data element_type="f32" offset="615424" shape="64,256,1,1" size="65536"/>
+			<data element_type="f16" offset="307712" shape="64,256,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -801,7 +801,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -810,9 +810,9 @@
 			</output>
 		</layer>
 		<layer id="45" name="data_add_1011510120/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="680960" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="340480" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -836,7 +836,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -854,7 +854,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -863,9 +863,9 @@
 			</output>
 		</layer>
 		<layer id="48" name="BatchNormalization_30/mean/Fused_Mul_1101911021_const" type="Const" version="opset1">
-			<data element_type="f32" offset="681216" shape="64,64,3,3" size="147456"/>
+			<data element_type="f16" offset="340608" shape="64,64,3,3" size="73728"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>64</dim>
 					<dim>64</dim>
 					<dim>3</dim>
@@ -890,7 +890,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -899,9 +899,9 @@
 			</output>
 		</layer>
 		<layer id="50" name="data_add_1012310128/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="828672" shape="1,64,1,1" size="256"/>
+			<data element_type="f16" offset="414336" shape="1,64,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -925,7 +925,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -943,7 +943,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>64</dim>
 					<dim>75</dim>
@@ -952,9 +952,9 @@
 			</output>
 		</layer>
 		<layer id="53" name="BatchNormalization_33/mean/Fused_Mul_1102311025_const" type="Const" version="opset1">
-			<data element_type="f32" offset="828928" shape="256,64,1,1" size="65536"/>
+			<data element_type="f16" offset="414464" shape="256,64,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -979,7 +979,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -988,9 +988,9 @@
 			</output>
 		</layer>
 		<layer id="55" name="data_add_1013110136/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="894464" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="447232" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -1014,7 +1014,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -1038,7 +1038,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -1056,7 +1056,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>75</dim>
@@ -1065,9 +1065,9 @@
 			</output>
 		</layer>
 		<layer id="59" name="BatchNormalization_37/mean/Fused_Mul_1103111033_const" type="Const" version="opset1">
-			<data element_type="f32" offset="895488" shape="128,256,1,1" size="131072"/>
+			<data element_type="f16" offset="447744" shape="128,256,1,1" size="65536"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -1092,7 +1092,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>75</dim>
@@ -1101,9 +1101,9 @@
 			</output>
 		</layer>
 		<layer id="61" name="data_add_1014710152/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1026560" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="513280" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1127,7 +1127,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>75</dim>
@@ -1145,7 +1145,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>75</dim>
@@ -1154,9 +1154,9 @@
 			</output>
 		</layer>
 		<layer id="64" name="BatchNormalization_40/mean/Fused_Mul_1103511037_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1027072" shape="128,128,3,3" size="589824"/>
+			<data element_type="f16" offset="513536" shape="128,128,3,3" size="294912"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -1181,7 +1181,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1190,9 +1190,9 @@
 			</output>
 		</layer>
 		<layer id="66" name="data_add_1015510160/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1616896" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="808448" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1216,7 +1216,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1234,7 +1234,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1243,9 +1243,9 @@
 			</output>
 		</layer>
 		<layer id="69" name="BatchNormalization_43/mean/Fused_Mul_1103911041_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1617408" shape="512,128,1,1" size="262144"/>
+			<data element_type="f16" offset="808704" shape="512,128,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1270,7 +1270,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1279,9 +1279,9 @@
 			</output>
 		</layer>
 		<layer id="71" name="data_add_1016310168/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1879552" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="939776" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -1305,7 +1305,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1314,9 +1314,9 @@
 			</output>
 		</layer>
 		<layer id="73" name="BatchNormalization_45/mean/Fused_Mul_1102711029_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1881600" shape="512,256,1,1" size="524288"/>
+			<data element_type="f16" offset="940800" shape="512,256,1,1" size="262144"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -1341,7 +1341,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1350,9 +1350,9 @@
 			</output>
 		</layer>
 		<layer id="75" name="data_add_1013910144/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="2405888" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="1202944" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -1376,7 +1376,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1400,7 +1400,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1418,7 +1418,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1427,9 +1427,9 @@
 			</output>
 		</layer>
 		<layer id="79" name="BatchNormalization_49/mean/Fused_Mul_1104311045_const" type="Const" version="opset1">
-			<data element_type="f32" offset="2407936" shape="128,512,1,1" size="262144"/>
+			<data element_type="f16" offset="1203968" shape="128,512,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -1454,7 +1454,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1463,9 +1463,9 @@
 			</output>
 		</layer>
 		<layer id="81" name="data_add_1017110176/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="2670080" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="1335040" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1489,7 +1489,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1507,7 +1507,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1516,9 +1516,9 @@
 			</output>
 		</layer>
 		<layer id="84" name="BatchNormalization_52/mean/Fused_Mul_1104711049_const" type="Const" version="opset1">
-			<data element_type="f32" offset="2670592" shape="128,128,3,3" size="589824"/>
+			<data element_type="f16" offset="1335296" shape="128,128,3,3" size="294912"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -1543,7 +1543,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1552,9 +1552,9 @@
 			</output>
 		</layer>
 		<layer id="86" name="data_add_1017910184/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="3260416" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="1630208" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1578,7 +1578,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1596,7 +1596,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1605,9 +1605,9 @@
 			</output>
 		</layer>
 		<layer id="89" name="BatchNormalization_55/mean/Fused_Mul_1105111053_const" type="Const" version="opset1">
-			<data element_type="f32" offset="3260928" shape="512,128,1,1" size="262144"/>
+			<data element_type="f16" offset="1630464" shape="512,128,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1632,7 +1632,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1641,9 +1641,9 @@
 			</output>
 		</layer>
 		<layer id="91" name="data_add_1018710192/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="3523072" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="1761536" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -1667,7 +1667,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1691,7 +1691,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1709,7 +1709,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1718,9 +1718,9 @@
 			</output>
 		</layer>
 		<layer id="95" name="BatchNormalization_59/mean/Fused_Mul_1105511057_const" type="Const" version="opset1">
-			<data element_type="f32" offset="3525120" shape="128,512,1,1" size="262144"/>
+			<data element_type="f16" offset="1762560" shape="128,512,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -1745,7 +1745,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1754,9 +1754,9 @@
 			</output>
 		</layer>
 		<layer id="97" name="data_add_1019510200/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="3787264" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="1893632" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1780,7 +1780,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1798,7 +1798,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1807,9 +1807,9 @@
 			</output>
 		</layer>
 		<layer id="100" name="BatchNormalization_62/mean/Fused_Mul_1105911061_const" type="Const" version="opset1">
-			<data element_type="f32" offset="3787776" shape="128,128,3,3" size="589824"/>
+			<data element_type="f16" offset="1893888" shape="128,128,3,3" size="294912"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -1834,7 +1834,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1843,9 +1843,9 @@
 			</output>
 		</layer>
 		<layer id="102" name="data_add_1020310208/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="4377600" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="2188800" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1869,7 +1869,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1887,7 +1887,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -1896,9 +1896,9 @@
 			</output>
 		</layer>
 		<layer id="105" name="BatchNormalization_65/mean/Fused_Mul_1106311065_const" type="Const" version="opset1">
-			<data element_type="f32" offset="4378112" shape="512,128,1,1" size="262144"/>
+			<data element_type="f16" offset="2189056" shape="512,128,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -1923,7 +1923,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1932,9 +1932,9 @@
 			</output>
 		</layer>
 		<layer id="107" name="data_add_1021110216/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="4640256" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="2320128" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -1958,7 +1958,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -1982,7 +1982,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -2000,7 +2000,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -2009,9 +2009,9 @@
 			</output>
 		</layer>
 		<layer id="111" name="BatchNormalization_69/mean/Fused_Mul_1106711069_const" type="Const" version="opset1">
-			<data element_type="f32" offset="4642304" shape="128,512,1,1" size="262144"/>
+			<data element_type="f16" offset="2321152" shape="128,512,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -2036,7 +2036,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -2045,9 +2045,9 @@
 			</output>
 		</layer>
 		<layer id="113" name="data_add_1021910224/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="4904448" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="2452224" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -2071,7 +2071,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -2089,7 +2089,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -2098,9 +2098,9 @@
 			</output>
 		</layer>
 		<layer id="116" name="BatchNormalization_72/mean/Fused_Mul_1107111073_const" type="Const" version="opset1">
-			<data element_type="f32" offset="4904960" shape="128,128,3,3" size="589824"/>
+			<data element_type="f16" offset="2452480" shape="128,128,3,3" size="294912"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -2125,7 +2125,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -2134,9 +2134,9 @@
 			</output>
 		</layer>
 		<layer id="118" name="data_add_1022710232/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="5494784" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="2747392" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -2160,7 +2160,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -2178,7 +2178,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>38</dim>
@@ -2187,9 +2187,9 @@
 			</output>
 		</layer>
 		<layer id="121" name="BatchNormalization_75/mean/Fused_Mul_1107511077_const" type="Const" version="opset1">
-			<data element_type="f32" offset="5495296" shape="512,128,1,1" size="262144"/>
+			<data element_type="f16" offset="2747648" shape="512,128,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -2214,7 +2214,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -2223,9 +2223,9 @@
 			</output>
 		</layer>
 		<layer id="123" name="data_add_1023510240/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="5757440" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="2878720" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -2249,7 +2249,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -2273,7 +2273,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -2291,7 +2291,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>38</dim>
@@ -2300,9 +2300,9 @@
 			</output>
 		</layer>
 		<layer id="127" name="BatchNormalization_79/mean/Fused_Mul_1108311085_const" type="Const" version="opset1">
-			<data element_type="f32" offset="5759488" shape="256,512,1,1" size="524288"/>
+			<data element_type="f16" offset="2879744" shape="256,512,1,1" size="262144"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -2327,7 +2327,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2336,9 +2336,9 @@
 			</output>
 		</layer>
 		<layer id="129" name="data_add_1025110256/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="6283776" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="3141888" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -2362,7 +2362,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2380,7 +2380,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2389,9 +2389,9 @@
 			</output>
 		</layer>
 		<layer id="132" name="BatchNormalization_82/mean/Fused_Mul_1108711089_const" type="Const" version="opset1">
-			<data element_type="f32" offset="6284800" shape="256,256,3,3" size="2359296"/>
+			<data element_type="f16" offset="3142400" shape="256,256,3,3" size="1179648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -2416,7 +2416,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2425,9 +2425,9 @@
 			</output>
 		</layer>
 		<layer id="134" name="data_add_1025910264/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="8644096" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="4322048" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -2451,7 +2451,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2469,7 +2469,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2478,9 +2478,9 @@
 			</output>
 		</layer>
 		<layer id="137" name="BatchNormalization_85/mean/Fused_Mul_1109111093_const" type="Const" version="opset1">
-			<data element_type="f32" offset="8645120" shape="1024,256,1,1" size="1048576"/>
+			<data element_type="f16" offset="4322560" shape="1024,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -2505,7 +2505,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2514,9 +2514,9 @@
 			</output>
 		</layer>
 		<layer id="139" name="data_add_1026710272/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="9693696" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="4846848" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -2540,7 +2540,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2549,9 +2549,9 @@
 			</output>
 		</layer>
 		<layer id="141" name="BatchNormalization_87/mean/Fused_Mul_1107911081_const" type="Const" version="opset1">
-			<data element_type="f32" offset="9697792" shape="1024,512,1,1" size="2097152"/>
+			<data element_type="f16" offset="4848896" shape="1024,512,1,1" size="1048576"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -2576,7 +2576,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2585,9 +2585,9 @@
 			</output>
 		</layer>
 		<layer id="143" name="data_add_1024310248/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="11794944" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="5897472" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -2611,7 +2611,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2635,7 +2635,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2653,7 +2653,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2662,9 +2662,9 @@
 			</output>
 		</layer>
 		<layer id="147" name="BatchNormalization_91/mean/Fused_Mul_1109511097_const" type="Const" version="opset1">
-			<data element_type="f32" offset="11799040" shape="256,1024,1,1" size="1048576"/>
+			<data element_type="f16" offset="5899520" shape="256,1024,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -2689,7 +2689,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2698,9 +2698,9 @@
 			</output>
 		</layer>
 		<layer id="149" name="data_add_1027510280/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="12847616" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="6423808" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -2724,7 +2724,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2742,7 +2742,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2751,9 +2751,9 @@
 			</output>
 		</layer>
 		<layer id="152" name="BatchNormalization_94/mean/Fused_Mul_1109911101_const" type="Const" version="opset1">
-			<data element_type="f32" offset="12848640" shape="256,256,3,3" size="2359296"/>
+			<data element_type="f16" offset="6424320" shape="256,256,3,3" size="1179648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -2778,7 +2778,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2787,9 +2787,9 @@
 			</output>
 		</layer>
 		<layer id="154" name="data_add_1028310288/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="15207936" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="7603968" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -2813,7 +2813,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2831,7 +2831,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2840,9 +2840,9 @@
 			</output>
 		</layer>
 		<layer id="157" name="BatchNormalization_97/mean/Fused_Mul_1110311105_const" type="Const" version="opset1">
-			<data element_type="f32" offset="15208960" shape="1024,256,1,1" size="1048576"/>
+			<data element_type="f16" offset="7604480" shape="1024,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -2867,7 +2867,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2876,9 +2876,9 @@
 			</output>
 		</layer>
 		<layer id="159" name="data_add_1029110296/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="16257536" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="8128768" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -2902,7 +2902,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2926,7 +2926,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2944,7 +2944,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -2953,9 +2953,9 @@
 			</output>
 		</layer>
 		<layer id="163" name="BatchNormalization_101/mean/Fused_Mul_1110711109_const" type="Const" version="opset1">
-			<data element_type="f32" offset="16261632" shape="256,1024,1,1" size="1048576"/>
+			<data element_type="f16" offset="8130816" shape="256,1024,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -2980,7 +2980,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -2989,9 +2989,9 @@
 			</output>
 		</layer>
 		<layer id="165" name="data_add_1029910304/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="17310208" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="8655104" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3015,7 +3015,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3033,7 +3033,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3042,9 +3042,9 @@
 			</output>
 		</layer>
 		<layer id="168" name="BatchNormalization_104/mean/Fused_Mul_1111111113_const" type="Const" version="opset1">
-			<data element_type="f32" offset="17311232" shape="256,256,3,3" size="2359296"/>
+			<data element_type="f16" offset="8655616" shape="256,256,3,3" size="1179648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -3069,7 +3069,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3078,9 +3078,9 @@
 			</output>
 		</layer>
 		<layer id="170" name="data_add_1030710312/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="19670528" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="9835264" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3104,7 +3104,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3122,7 +3122,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3131,9 +3131,9 @@
 			</output>
 		</layer>
 		<layer id="173" name="BatchNormalization_107/mean/Fused_Mul_1111511117_const" type="Const" version="opset1">
-			<data element_type="f32" offset="19671552" shape="1024,256,1,1" size="1048576"/>
+			<data element_type="f16" offset="9835776" shape="1024,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3158,7 +3158,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3167,9 +3167,9 @@
 			</output>
 		</layer>
 		<layer id="175" name="data_add_1031510320/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="20720128" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="10360064" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -3193,7 +3193,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3217,7 +3217,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3235,7 +3235,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3244,9 +3244,9 @@
 			</output>
 		</layer>
 		<layer id="179" name="BatchNormalization_111/mean/Fused_Mul_1111911121_const" type="Const" version="opset1">
-			<data element_type="f32" offset="20724224" shape="256,1024,1,1" size="1048576"/>
+			<data element_type="f16" offset="10362112" shape="256,1024,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -3271,7 +3271,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3280,9 +3280,9 @@
 			</output>
 		</layer>
 		<layer id="181" name="data_add_1032310328/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="21772800" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="10886400" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3306,7 +3306,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3324,7 +3324,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3333,9 +3333,9 @@
 			</output>
 		</layer>
 		<layer id="184" name="BatchNormalization_114/mean/Fused_Mul_1112311125_const" type="Const" version="opset1">
-			<data element_type="f32" offset="21773824" shape="256,256,3,3" size="2359296"/>
+			<data element_type="f16" offset="10886912" shape="256,256,3,3" size="1179648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -3360,7 +3360,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3369,9 +3369,9 @@
 			</output>
 		</layer>
 		<layer id="186" name="data_add_1033110336/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="24133120" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="12066560" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3395,7 +3395,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3413,7 +3413,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3422,9 +3422,9 @@
 			</output>
 		</layer>
 		<layer id="189" name="BatchNormalization_117/mean/Fused_Mul_1112711129_const" type="Const" version="opset1">
-			<data element_type="f32" offset="24134144" shape="1024,256,1,1" size="1048576"/>
+			<data element_type="f16" offset="12067072" shape="1024,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3449,7 +3449,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3458,9 +3458,9 @@
 			</output>
 		</layer>
 		<layer id="191" name="data_add_1033910344/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="25182720" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="12591360" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -3484,7 +3484,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3508,7 +3508,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3526,7 +3526,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3535,9 +3535,9 @@
 			</output>
 		</layer>
 		<layer id="195" name="BatchNormalization_121/mean/Fused_Mul_1113111133_const" type="Const" version="opset1">
-			<data element_type="f32" offset="25186816" shape="256,1024,1,1" size="1048576"/>
+			<data element_type="f16" offset="12593408" shape="256,1024,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -3562,7 +3562,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3571,9 +3571,9 @@
 			</output>
 		</layer>
 		<layer id="197" name="data_add_1034710352/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="26235392" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="13117696" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3597,7 +3597,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3615,7 +3615,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3624,9 +3624,9 @@
 			</output>
 		</layer>
 		<layer id="200" name="BatchNormalization_124/mean/Fused_Mul_1113511137_const" type="Const" version="opset1">
-			<data element_type="f32" offset="26236416" shape="256,256,3,3" size="2359296"/>
+			<data element_type="f16" offset="13118208" shape="256,256,3,3" size="1179648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -3651,7 +3651,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3660,9 +3660,9 @@
 			</output>
 		</layer>
 		<layer id="202" name="data_add_1035510360/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="28595712" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="14297856" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3686,7 +3686,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3704,7 +3704,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3713,9 +3713,9 @@
 			</output>
 		</layer>
 		<layer id="205" name="BatchNormalization_127/mean/Fused_Mul_1113911141_const" type="Const" version="opset1">
-			<data element_type="f32" offset="28596736" shape="1024,256,1,1" size="1048576"/>
+			<data element_type="f16" offset="14298368" shape="1024,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3740,7 +3740,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3749,9 +3749,9 @@
 			</output>
 		</layer>
 		<layer id="207" name="data_add_1036310368/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="29645312" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="14822656" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -3775,7 +3775,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3799,7 +3799,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3817,7 +3817,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -3826,9 +3826,9 @@
 			</output>
 		</layer>
 		<layer id="211" name="BatchNormalization_131/mean/Fused_Mul_1114311145_const" type="Const" version="opset1">
-			<data element_type="f32" offset="29649408" shape="256,1024,1,1" size="1048576"/>
+			<data element_type="f16" offset="14824704" shape="256,1024,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -3853,7 +3853,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3862,9 +3862,9 @@
 			</output>
 		</layer>
 		<layer id="213" name="data_add_1037110376/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="30697984" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="15348992" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3888,7 +3888,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3906,7 +3906,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3915,9 +3915,9 @@
 			</output>
 		</layer>
 		<layer id="216" name="BatchNormalization_134/mean/Fused_Mul_1114711149_const" type="Const" version="opset1">
-			<data element_type="f32" offset="30699008" shape="256,256,3,3" size="2359296"/>
+			<data element_type="f16" offset="15349504" shape="256,256,3,3" size="1179648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -3942,7 +3942,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3951,9 +3951,9 @@
 			</output>
 		</layer>
 		<layer id="218" name="data_add_1037910384/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="33058304" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="16529152" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -3977,7 +3977,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -3995,7 +3995,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -4004,9 +4004,9 @@
 			</output>
 		</layer>
 		<layer id="221" name="BatchNormalization_137/mean/Fused_Mul_1115111153_const" type="Const" version="opset1">
-			<data element_type="f32" offset="33059328" shape="1024,256,1,1" size="1048576"/>
+			<data element_type="f16" offset="16529664" shape="1024,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1024</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -4031,7 +4031,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -4040,9 +4040,9 @@
 			</output>
 		</layer>
 		<layer id="223" name="data_add_1038710392/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="34107904" shape="1,1024,1,1" size="4096"/>
+			<data element_type="f16" offset="17053952" shape="1,1024,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -4066,7 +4066,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -4090,7 +4090,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -4108,7 +4108,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>1024</dim>
 					<dim>38</dim>
@@ -4117,9 +4117,9 @@
 			</output>
 		</layer>
 		<layer id="227" name="onnx_initializer_node_loc.0.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="34112000" shape="16,1024,3,3" size="589824"/>
+			<data element_type="f16" offset="17056000" shape="16,1024,3,3" size="294912"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>16</dim>
 					<dim>1024</dim>
 					<dim>3</dim>
@@ -4144,7 +4144,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>16</dim>
 					<dim>38</dim>
@@ -4152,10 +4152,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="229" name="Conv_170/Dims6084/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="34701824" shape="1,16,1,1" size="64"/>
+		<layer id="229" name="Conv_170/Dims6102/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="17350912" shape="1,16,1,1" size="32"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -4179,7 +4179,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>16</dim>
 					<dim>38</dim>
@@ -4187,8 +4187,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="231" name="Reshape_176/Cast_116465_const" type="Const" version="opset1">
-			<data element_type="i64" offset="34701888" shape="3" size="24"/>
+		<layer id="231" name="Reshape_176/Cast_116471_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17350944" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -4209,7 +4209,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>5776</dim>
@@ -4217,9 +4217,9 @@
 			</output>
 		</layer>
 		<layer id="233" name="BatchNormalization_141/mean/Fused_Mul_1115511157_const" type="Const" version="opset1">
-			<data element_type="f32" offset="34701912" shape="256,1024,1,1" size="1048576"/>
+			<data element_type="f16" offset="17350968" shape="256,1024,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>1024</dim>
 					<dim>1</dim>
@@ -4244,7 +4244,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -4253,9 +4253,9 @@
 			</output>
 		</layer>
 		<layer id="235" name="data_add_1039510400/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="35750488" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="17875256" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -4279,7 +4279,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -4297,7 +4297,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>38</dim>
@@ -4306,9 +4306,9 @@
 			</output>
 		</layer>
 		<layer id="238" name="BatchNormalization_144/mean/Fused_Mul_1115911161_const" type="Const" version="opset1">
-			<data element_type="f32" offset="35751512" shape="512,256,3,3" size="4718592"/>
+			<data element_type="f16" offset="17875768" shape="512,256,3,3" size="2359296"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -4333,7 +4333,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>19</dim>
@@ -4342,9 +4342,9 @@
 			</output>
 		</layer>
 		<layer id="240" name="data_add_1040310408/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="40470104" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="20235064" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -4368,7 +4368,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>19</dim>
@@ -4386,7 +4386,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>19</dim>
@@ -4395,9 +4395,9 @@
 			</output>
 		</layer>
 		<layer id="243" name="onnx_initializer_node_loc.1.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="40472152" shape="24,512,3,3" size="442368"/>
+			<data element_type="f16" offset="20236088" shape="24,512,3,3" size="221184"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>24</dim>
 					<dim>512</dim>
 					<dim>3</dim>
@@ -4422,7 +4422,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>24</dim>
 					<dim>19</dim>
@@ -4430,10 +4430,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="245" name="Conv_184/Dims6096/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="40914520" shape="1,24,1,1" size="96"/>
+		<layer id="245" name="Conv_184/Dims6042/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="20457272" shape="1,24,1,1" size="48"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -4457,7 +4457,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>24</dim>
 					<dim>19</dim>
@@ -4465,8 +4465,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="247" name="Reshape_190/Cast_116449_const" type="Const" version="opset1">
-			<data element_type="i64" offset="34701888" shape="3" size="24"/>
+		<layer id="247" name="Reshape_190/Cast_116465_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17350944" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -4487,7 +4487,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>2166</dim>
@@ -4495,9 +4495,9 @@
 			</output>
 		</layer>
 		<layer id="249" name="BatchNormalization_147/mean/Fused_Mul_1116311165_const" type="Const" version="opset1">
-			<data element_type="f32" offset="40914616" shape="256,512,1,1" size="524288"/>
+			<data element_type="f16" offset="20457320" shape="256,512,1,1" size="262144"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -4522,7 +4522,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>19</dim>
@@ -4531,9 +4531,9 @@
 			</output>
 		</layer>
 		<layer id="251" name="data_add_1041110416/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="41438904" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="20719464" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -4557,7 +4557,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>19</dim>
@@ -4575,7 +4575,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>19</dim>
@@ -4584,9 +4584,9 @@
 			</output>
 		</layer>
 		<layer id="254" name="BatchNormalization_150/mean/Fused_Mul_1116711169_const" type="Const" version="opset1">
-			<data element_type="f32" offset="41439928" shape="512,256,3,3" size="4718592"/>
+			<data element_type="f16" offset="20719976" shape="512,256,3,3" size="2359296"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>512</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -4611,7 +4611,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>10</dim>
@@ -4620,9 +4620,9 @@
 			</output>
 		</layer>
 		<layer id="256" name="data_add_1041910424/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="46158520" shape="1,512,1,1" size="2048"/>
+			<data element_type="f16" offset="23079272" shape="1,512,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -4646,7 +4646,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>10</dim>
@@ -4664,7 +4664,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>512</dim>
 					<dim>10</dim>
@@ -4673,9 +4673,9 @@
 			</output>
 		</layer>
 		<layer id="259" name="onnx_initializer_node_loc.2.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="46160568" shape="24,512,3,3" size="442368"/>
+			<data element_type="f16" offset="23080296" shape="24,512,3,3" size="221184"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>24</dim>
 					<dim>512</dim>
 					<dim>3</dim>
@@ -4700,7 +4700,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>24</dim>
 					<dim>10</dim>
@@ -4708,10 +4708,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="261" name="Conv_198/Dims6072/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="46602936" shape="1,24,1,1" size="96"/>
+		<layer id="261" name="Conv_198/Dims6084/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="23301480" shape="1,24,1,1" size="48"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -4735,7 +4735,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>24</dim>
 					<dim>10</dim>
@@ -4743,8 +4743,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="263" name="Reshape_204/Cast_116455_const" type="Const" version="opset1">
-			<data element_type="i64" offset="34701888" shape="3" size="24"/>
+		<layer id="263" name="Reshape_204/Cast_116469_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17350944" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -4765,7 +4765,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>600</dim>
@@ -4773,9 +4773,9 @@
 			</output>
 		</layer>
 		<layer id="265" name="BatchNormalization_153/mean/Fused_Mul_1117111173_const" type="Const" version="opset1">
-			<data element_type="f32" offset="46603032" shape="128,512,1,1" size="262144"/>
+			<data element_type="f16" offset="23301528" shape="128,512,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -4800,7 +4800,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>10</dim>
@@ -4809,9 +4809,9 @@
 			</output>
 		</layer>
 		<layer id="267" name="data_add_1042710432/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="46865176" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="23432600" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -4835,7 +4835,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>10</dim>
@@ -4853,7 +4853,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>10</dim>
@@ -4862,9 +4862,9 @@
 			</output>
 		</layer>
 		<layer id="270" name="BatchNormalization_156/mean/Fused_Mul_1117511177_const" type="Const" version="opset1">
-			<data element_type="f32" offset="46865688" shape="256,128,3,3" size="1179648"/>
+			<data element_type="f16" offset="23432856" shape="256,128,3,3" size="589824"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -4889,7 +4889,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>5</dim>
@@ -4898,9 +4898,9 @@
 			</output>
 		</layer>
 		<layer id="272" name="data_add_1043510440/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="48045336" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="24022680" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -4924,7 +4924,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>5</dim>
@@ -4942,7 +4942,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>5</dim>
@@ -4951,9 +4951,9 @@
 			</output>
 		</layer>
 		<layer id="275" name="onnx_initializer_node_loc.3.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="48046360" shape="24,256,3,3" size="221184"/>
+			<data element_type="f16" offset="24023192" shape="24,256,3,3" size="110592"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>24</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -4978,7 +4978,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>24</dim>
 					<dim>5</dim>
@@ -4986,10 +4986,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="277" name="Conv_212/Dims6066/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="48267544" shape="1,24,1,1" size="96"/>
+		<layer id="277" name="Conv_212/Dims6048/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="24133784" shape="1,24,1,1" size="48"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -5013,7 +5013,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>24</dim>
 					<dim>5</dim>
@@ -5021,8 +5021,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="279" name="Reshape_218/Cast_116471_const" type="Const" version="opset1">
-			<data element_type="i64" offset="34701888" shape="3" size="24"/>
+		<layer id="279" name="Reshape_218/Cast_116467_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17350944" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5043,7 +5043,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>150</dim>
@@ -5051,9 +5051,9 @@
 			</output>
 		</layer>
 		<layer id="281" name="BatchNormalization_159/mean/Fused_Mul_1117911181_const" type="Const" version="opset1">
-			<data element_type="f32" offset="48267640" shape="128,256,1,1" size="131072"/>
+			<data element_type="f16" offset="24133832" shape="128,256,1,1" size="65536"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5078,7 +5078,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>5</dim>
@@ -5087,9 +5087,9 @@
 			</output>
 		</layer>
 		<layer id="283" name="data_add_1044310448/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="48398712" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="24199368" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -5113,7 +5113,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>5</dim>
@@ -5131,7 +5131,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>5</dim>
@@ -5140,9 +5140,9 @@
 			</output>
 		</layer>
 		<layer id="286" name="BatchNormalization_162/mean/Fused_Mul_1118311185_const" type="Const" version="opset1">
-			<data element_type="f32" offset="48399224" shape="256,128,3,3" size="1179648"/>
+			<data element_type="f16" offset="24199624" shape="256,128,3,3" size="589824"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5167,7 +5167,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5176,9 +5176,9 @@
 			</output>
 		</layer>
 		<layer id="288" name="data_add_1045110456/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="49578872" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="24789448" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5202,7 +5202,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5220,7 +5220,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5229,9 +5229,9 @@
 			</output>
 		</layer>
 		<layer id="291" name="onnx_initializer_node_loc.4.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="49579896" shape="16,256,3,3" size="147456"/>
+			<data element_type="f16" offset="24789960" shape="16,256,3,3" size="73728"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>16</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5256,7 +5256,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>16</dim>
 					<dim>3</dim>
@@ -5264,10 +5264,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="293" name="Conv_226/Dims6090/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="49727352" shape="1,16,1,1" size="64"/>
+		<layer id="293" name="Conv_226/Dims6072/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="24863688" shape="1,16,1,1" size="32"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -5291,7 +5291,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>16</dim>
 					<dim>3</dim>
@@ -5299,8 +5299,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="295" name="Reshape_232/Cast_116461_const" type="Const" version="opset1">
-			<data element_type="i64" offset="34701888" shape="3" size="24"/>
+		<layer id="295" name="Reshape_232/Cast_116449_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17350944" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5321,7 +5321,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>36</dim>
@@ -5329,9 +5329,9 @@
 			</output>
 		</layer>
 		<layer id="297" name="BatchNormalization_165/mean/Fused_Mul_1118711189_const" type="Const" version="opset1">
-			<data element_type="f32" offset="49727416" shape="128,256,1,1" size="131072"/>
+			<data element_type="f16" offset="24863720" shape="128,256,1,1" size="65536"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>128</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5356,7 +5356,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5365,9 +5365,9 @@
 			</output>
 		</layer>
 		<layer id="299" name="data_add_1045910464/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="49858488" shape="1,128,1,1" size="512"/>
+			<data element_type="f16" offset="24929256" shape="1,128,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -5391,7 +5391,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5409,7 +5409,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5418,9 +5418,9 @@
 			</output>
 		</layer>
 		<layer id="302" name="BatchNormalization_168/mean/Fused_Mul_1119111193_const" type="Const" version="opset1">
-			<data element_type="f32" offset="49859000" shape="256,128,3,3" size="1179648"/>
+			<data element_type="f16" offset="24929512" shape="256,128,3,3" size="589824"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>256</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5445,7 +5445,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5454,9 +5454,9 @@
 			</output>
 		</layer>
 		<layer id="304" name="data_add_1046710472/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="51038648" shape="1,256,1,1" size="1024"/>
+			<data element_type="f16" offset="25519336" shape="1,256,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5480,7 +5480,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5498,7 +5498,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>10</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5507,9 +5507,9 @@
 			</output>
 		</layer>
 		<layer id="307" name="onnx_initializer_node_loc.5.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="51039672" shape="16,256,3,3" size="147456"/>
+			<data element_type="f16" offset="25519848" shape="16,256,3,3" size="73728"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>16</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5534,7 +5534,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -5542,10 +5542,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="309" name="Conv_240/Dims6054/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="51187128" shape="1,16,1,1" size="64"/>
+		<layer id="309" name="Conv_240/Dims6078/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="25593576" shape="1,16,1,1" size="32"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -5569,7 +5569,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -5577,8 +5577,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="311" name="Reshape_246/Cast_116457_const" type="Const" version="opset1">
-			<data element_type="i64" offset="34701888" shape="3" size="24"/>
+		<layer id="311" name="Reshape_246/Cast_116461_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17350944" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5599,7 +5599,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>4</dim>
@@ -5641,7 +5641,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="6" precision="FP32">
+				<port id="6" precision="FP16">
 					<dim>10</dim>
 					<dim>4</dim>
 					<dim>8732</dim>
@@ -5658,9 +5658,9 @@
 			</input>
 		</layer>
 		<layer id="315" name="onnx_initializer_node_conf.0.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="51187192" shape="324,1024,3,3" size="11943936"/>
+			<data element_type="f16" offset="25593608" shape="324,1024,3,3" size="5971968"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>324</dim>
 					<dim>1024</dim>
 					<dim>3</dim>
@@ -5685,7 +5685,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>324</dim>
 					<dim>38</dim>
@@ -5694,9 +5694,9 @@
 			</output>
 		</layer>
 		<layer id="317" name="Conv_177/Dims6036/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="63131128" shape="1,324,1,1" size="1296"/>
+			<data element_type="f16" offset="31565576" shape="1,324,1,1" size="648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>324</dim>
 					<dim>1</dim>
@@ -5720,7 +5720,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>324</dim>
 					<dim>38</dim>
@@ -5728,8 +5728,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="319" name="Reshape_183/Cast_116469_const" type="Const" version="opset1">
-			<data element_type="i64" offset="63132424" shape="3" size="24"/>
+		<layer id="319" name="Reshape_183/Cast_116451_const" type="Const" version="opset1">
+			<data element_type="i64" offset="31566224" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5750,7 +5750,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>5776</dim>
@@ -5758,9 +5758,9 @@
 			</output>
 		</layer>
 		<layer id="321" name="onnx_initializer_node_conf.1.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="63132448" shape="486,512,3,3" size="8957952"/>
+			<data element_type="f16" offset="31566248" shape="486,512,3,3" size="4478976"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>486</dim>
 					<dim>512</dim>
 					<dim>3</dim>
@@ -5785,7 +5785,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>486</dim>
 					<dim>19</dim>
@@ -5793,10 +5793,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="323" name="Conv_191/Dims6042/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="72090400" shape="1,486,1,1" size="1944"/>
+		<layer id="323" name="Conv_191/Dims6060/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="36045224" shape="1,486,1,1" size="972"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>486</dim>
 					<dim>1</dim>
@@ -5820,7 +5820,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>486</dim>
 					<dim>19</dim>
@@ -5828,8 +5828,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="325" name="Reshape_197/Cast_116467_const" type="Const" version="opset1">
-			<data element_type="i64" offset="63132424" shape="3" size="24"/>
+		<layer id="325" name="Reshape_197/Cast_116455_const" type="Const" version="opset1">
+			<data element_type="i64" offset="31566224" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5850,7 +5850,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>2166</dim>
@@ -5858,9 +5858,9 @@
 			</output>
 		</layer>
 		<layer id="327" name="onnx_initializer_node_conf.2.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="72092344" shape="486,512,3,3" size="8957952"/>
+			<data element_type="f16" offset="36046196" shape="486,512,3,3" size="4478976"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>486</dim>
 					<dim>512</dim>
 					<dim>3</dim>
@@ -5885,7 +5885,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>486</dim>
 					<dim>10</dim>
@@ -5893,10 +5893,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="329" name="Conv_205/Dims6078/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="81050296" shape="1,486,1,1" size="1944"/>
+		<layer id="329" name="Conv_205/Dims6096/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="40525172" shape="1,486,1,1" size="972"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>486</dim>
 					<dim>1</dim>
@@ -5920,7 +5920,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>486</dim>
 					<dim>10</dim>
@@ -5928,8 +5928,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="331" name="Reshape_211/Cast_116453_const" type="Const" version="opset1">
-			<data element_type="i64" offset="63132424" shape="3" size="24"/>
+		<layer id="331" name="Reshape_211/Cast_116463_const" type="Const" version="opset1">
+			<data element_type="i64" offset="31566224" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5950,7 +5950,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>600</dim>
@@ -5958,9 +5958,9 @@
 			</output>
 		</layer>
 		<layer id="333" name="onnx_initializer_node_conf.3.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="81052240" shape="486,256,3,3" size="4478976"/>
+			<data element_type="f16" offset="40526144" shape="486,256,3,3" size="2239488"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>486</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5985,7 +5985,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>486</dim>
 					<dim>5</dim>
@@ -5993,10 +5993,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="335" name="Conv_219/Dims6048/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="85531216" shape="1,486,1,1" size="1944"/>
+		<layer id="335" name="Conv_219/Dims6090/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="42765632" shape="1,486,1,1" size="972"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>486</dim>
 					<dim>1</dim>
@@ -6020,7 +6020,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>486</dim>
 					<dim>5</dim>
@@ -6028,8 +6028,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="337" name="Reshape_225/Cast_116451_const" type="Const" version="opset1">
-			<data element_type="i64" offset="63132424" shape="3" size="24"/>
+		<layer id="337" name="Reshape_225/Cast_116453_const" type="Const" version="opset1">
+			<data element_type="i64" offset="31566224" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -6050,7 +6050,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>150</dim>
@@ -6058,9 +6058,9 @@
 			</output>
 		</layer>
 		<layer id="339" name="onnx_initializer_node_conf.4.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="85533160" shape="324,256,3,3" size="2985984"/>
+			<data element_type="f16" offset="42766604" shape="324,256,3,3" size="1492992"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>324</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -6085,7 +6085,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>324</dim>
 					<dim>3</dim>
@@ -6093,10 +6093,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="341" name="Conv_233/Dims6060/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="88519144" shape="1,324,1,1" size="1296"/>
+		<layer id="341" name="Conv_233/Dims6054/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="44259596" shape="1,324,1,1" size="648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>324</dim>
 					<dim>1</dim>
@@ -6120,7 +6120,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>324</dim>
 					<dim>3</dim>
@@ -6129,7 +6129,7 @@
 			</output>
 		</layer>
 		<layer id="343" name="Reshape_239/Cast_116459_const" type="Const" version="opset1">
-			<data element_type="i64" offset="63132424" shape="3" size="24"/>
+			<data element_type="i64" offset="31566224" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -6150,7 +6150,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>36</dim>
@@ -6158,9 +6158,9 @@
 			</output>
 		</layer>
 		<layer id="345" name="onnx_initializer_node_conf.5.weight/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f32" offset="88520440" shape="324,256,3,3" size="2985984"/>
+			<data element_type="f16" offset="44260244" shape="324,256,3,3" size="1492992"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>324</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -6185,7 +6185,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>324</dim>
 					<dim>1</dim>
@@ -6193,10 +6193,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="347" name="Conv_247/Dims6102/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="91506424" shape="1,324,1,1" size="1296"/>
+		<layer id="347" name="Conv_247/Dims6066/copy_const" type="Const" version="opset1">
+			<data element_type="f16" offset="45753236" shape="1,324,1,1" size="648"/>
 			<output>
-				<port id="1" precision="FP32">
+				<port id="1" precision="FP16">
 					<dim>1</dim>
 					<dim>324</dim>
 					<dim>1</dim>
@@ -6220,7 +6220,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>324</dim>
 					<dim>1</dim>
@@ -6228,8 +6228,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="349" name="Reshape_253/Cast_116463_const" type="Const" version="opset1">
-			<data element_type="i64" offset="63132424" shape="3" size="24"/>
+		<layer id="349" name="Reshape_253/Cast_116457_const" type="Const" version="opset1">
+			<data element_type="i64" offset="31566224" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -6250,7 +6250,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP32">
+				<port id="2" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>4</dim>
@@ -6292,7 +6292,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="6" precision="FP32">
+				<port id="6" precision="FP16">
 					<dim>10</dim>
 					<dim>81</dim>
 					<dim>8732</dim>
@@ -6691,7 +6691,7 @@
 		<cli_parameters>
 			<blobs_as_inputs value="True"/>
 			<caffe_parser_path value="DIR"/>
-			<data_type value="float"/>
+			<data_type value="FP16"/>
 			<disable_nhwc_to_nchw value="False"/>
 			<disable_omitting_optional value="False"/>
 			<disable_resnet_optimization value="False"/>
