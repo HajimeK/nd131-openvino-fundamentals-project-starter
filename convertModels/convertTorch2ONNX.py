@@ -3,7 +3,7 @@ import torch
 precision = 'fp32'
 ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd', model_math=precision)
 
-dummy_input = torch.randn(10, 3, 300, 300, device='cpu')
+dummy_input = torch.randn(1, 3, 300, 300, device='cpu')
 
 # Providing input and output names sets the display names for values
 # within the model's graph. Setting these does not change the semantics
