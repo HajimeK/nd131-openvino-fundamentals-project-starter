@@ -32,6 +32,7 @@ import paho.mqtt.client as mqtt
 
 from argparse import ArgumentParser
 from inference import Network
+import nvidia.inference as nv_infer
 #from helpers import load_to_IE, preprocessing
 
 # MQTT server environment variables
@@ -177,6 +178,12 @@ def main():
         # Start async inference
 
         image = cv2.resize(frame, (w, h))
+        img = np.array([frame, frame, frame]).swapaxes(0,2)
+        img = nv_infer.rescale(frame, 300, 300)
+        img = nv_infer.crop_center(img, 300, 300)
+        img = nv_infer.normalize(img)
+        # TODO: Change value 0-255 to 0.0-1.0
+
 
         # Change data layout from HWC to CHW
         image = image.transpose((2, 0, 1))

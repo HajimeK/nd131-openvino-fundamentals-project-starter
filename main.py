@@ -33,6 +33,11 @@ import paho.mqtt.client as mqtt
 from argparse import ArgumentParser
 from inference import Network
 
+import nvidia.inference as nv_infer
+from nvidia.utils import dboxes300_coco, Encoder
+from kuangliu.encoder import DataEncoder
+import numpy as np
+
 # MQTT server environment variables
 HOSTNAME = socket.gethostname()
 IPADDRESS = socket.gethostbyname(HOSTNAME)
@@ -95,6 +100,27 @@ def infer_on_stream(args, client):
 
     ### TODO: Loop until stream is over ###
 
+
+###
+        img = np.array([frame, frame, frame]).swapaxes(0,2)
+        img = nv_infer.rescale(frame, 300, 300)
+        img = nv_infer.crop_center(img, 300, 300)
+        img = nv_infer.normalize(img)
+        infer_network.exec_net(cur_request_id, img)
+###
+###        infer_network.exec_net(cur_request_id, image)
+        # Wait for the result
+        if infer_network.wait(cur_request_id) == 0:
+            det_time = time.time() - inf_start
+            # Results of the output layer of the network
+            result1 = infer_network.get_output(cur_request_id, 'Concat_254')
+            result2 = infer_network.get_output(cur_request_id, 'Concat_255')
+
+            #boxes, labels, probs
+            if args.perf_counts:
+                perf_count = infer_network.performance_counter(cur_request_id)
+                performance_counts(perf_count)
+###
         ### TODO: Read from the video capture ###
 
         ### TODO: Pre-process the image as needed ###
