@@ -33,6 +33,9 @@ import paho.mqtt.client as mqtt
 from argparse import ArgumentParser
 from inference import Network
 import nvidia.inference as nv_infer
+from nvidia.utils import dboxes300_coco, Encoder
+from kuangliu.encoder import DataEncoder
+import numpy as np
 #from helpers import load_to_IE, preprocessing
 
 # MQTT server environment variables
@@ -144,7 +147,9 @@ def main():
 #    n, c, h, w = infer_network.load_model(args.model, args.device, 1, 1,
     n, c, h, w = infer_network.load_model(args.model, args.device, 1, 2,
                                           cur_request_id, args.cpu_extension)[1]
-
+    dboxes = dboxes300_coco()
+    max_num = 200
+ 
     # Checks for live feed
     if args.input == 'CAM':
         input_stream = 0
@@ -176,33 +181,59 @@ def main():
             break
         key_pressed = cv2.waitKey(60)
         # Start async inference
-
         image = cv2.resize(frame, (w, h))
-        img = np.array([frame, frame, frame]).swapaxes(0,2)
-        img = nv_infer.rescale(frame, 300, 300)
-        img = nv_infer.crop_center(img, 300, 300)
-        img = nv_infer.normalize(img)
-        # TODO: Change value 0-255 to 0.0-1.0
-
-
         # Change data layout from HWC to CHW
         image = image.transpose((2, 0, 1))
         image = image.reshape((n, c, h, w))
         # Start asynchronous inference for specified request.
         inf_start = time.time()
-        infer_network.exec_net(cur_request_id, image)
+###
+        img = np.array([frame, frame, frame]).swapaxes(0,2)
+        img = nv_infer.rescale(frame, 300, 300)
+        img = nv_infer.crop_center(img, 300, 300)
+        img = nv_infer.normalize(img)
+        img = img.reshape((n,c,h,w))
+        infer_network.exec_net(cur_request_id, img)
+###
+###        infer_network.exec_net(cur_request_id, image)
         # Wait for the result
         if infer_network.wait(cur_request_id) == 0:
             det_time = time.time() - inf_start
             # Results of the output layer of the network
-            result1 = infer_network.get_output(cur_request_id, 'Concat_254')
+            bboxes_in = infer_network.get_output(cur_request_id, 'Concat_254')
             result2 = infer_network.get_output(cur_request_id, 'Concat_255')
+#            for i, score in enumerate(result2.split(1, 1)):
+            for i, score in enumerate(result2.squeeze()):
+                # skip background
+                # print(score[score>0.90])
+                if i == 0: continue
+                # print(i)
+
+                #score = score.squeeze(1)
+                mask = score > 0.05
+                bboxes, score = bboxes_in.squeeze()[:,mask], score[mask]
+                if len(score) == 0: continue
+
+                #score_sorted, score_idx_sorted = score.sort(dim=0)
+                score_sorted = np.sort(score)
+                score_idx_sorted = np.argsort(score)
+
+                # select max_output indices
+                score_idx_sorted = score_idx_sorted[-max_num:]
+                candidates = []
+
+                #score_sorted, score_idx_sorted = score.sort(dim=0)
+
+                # select max_output indices
+                #score_idx_sorted = score_idx_sorted[-max_num:]
+                #candidates = []
+
             #boxes, labels, probs
             if args.perf_counts:
                 perf_count = infer_network.performance_counter(cur_request_id)
                 performance_counts(perf_count)
 ###
-            best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
+#            best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
             for image_idx in range(len(best_results_per_input)):
                 # Show original, denormalized image...
                 image = inputs[image_idx] / 2 + 0.5
