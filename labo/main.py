@@ -120,6 +120,40 @@ def ssd_out(frame, result):
             current_count = current_count + 1
     return frame, current_count
 
+# This function is from https://github.com/kuangliu/pytorch-ssd.
+# Modified to work in non-pytorch tensor
+def iou(box1, box2):
+    '''Compute the intersection over union of two set of boxes, each box is [x1,y1,x2,y2].
+    Args:
+        box1: (tensor) bounding boxes, sized [N,4].
+        box2: (tensor) bounding boxes, sized [M,4].
+    Return:
+        (tensor) iou, sized [N,M].
+    '''
+    N = box1.size
+    M = box2.size
+
+    lt = torch.max(
+        box1[:,:2].unsqueeze(1).expand(N,M,2),  # [N,2] -> [N,1,2] -> [N,M,2]
+        box2[:,:2].unsqueeze(0).expand(N,M,2),  # [M,2] -> [1,M,2] -> [N,M,2]
+    )
+
+    rb = torch.min(
+        box1[:,2:].unsqueeze(1).expand(N,M,2),  # [N,2] -> [N,1,2] -> [N,M,2]
+        box2[:,2:].unsqueeze(0).expand(N,M,2),  # [M,2] -> [1,M,2] -> [N,M,2]
+    )
+
+    wh = rb - lt  # [N,M,2]
+    wh[wh<0] = 0  # clip at 0
+    inter = wh[:,:,0] * wh[:,:,1]  # [N,M]
+
+    area1 = (box1[:,2]-box1[:,0]) * (box1[:,3]-box1[:,1])  # [N,]
+    area2 = (box2[:,2]-box2[:,0]) * (box2[:,3]-box2[:,1])  # [M,]
+    area1 = area1.unsqueeze(1).expand_as(inter)  # [N,] -> [N,1] -> [N,M]
+    area2 = area2.unsqueeze(0).expand_as(inter)  # [M,] -> [1,M] -> [N,M]
+
+    iou = inter / (area1 + area2 - inter)
+    return iou
 
 def main():
     """
@@ -149,7 +183,7 @@ def main():
                                           cur_request_id, args.cpu_extension)[1]
     dboxes = dboxes300_coco()
     max_num = 200
- 
+
     # Checks for live feed
     if args.input == 'CAM':
         input_stream = 0
@@ -203,6 +237,9 @@ def main():
             bboxes_in = infer_network.get_output(cur_request_id, 'Concat_254')
             result2 = infer_network.get_output(cur_request_id, 'Concat_255')
 #            for i, score in enumerate(result2.split(1, 1)):
+            bboxes_out = []
+            scores_out = []
+            labels_out = []
             for i, score in enumerate(result2.squeeze()):
                 # skip background
                 # print(score[score>0.90])
@@ -227,13 +264,28 @@ def main():
                 # select max_output indices
                 #score_idx_sorted = score_idx_sorted[-max_num:]
                 #candidates = []
+                while score_idx_sorted.size > 0:
+                    idx = score_idx_sorted[-1].item()
+                    #bboxes_sorted = bboxes[score_idx_sorted, :]
+                    bboxes_sorted = bboxes[:,score_idx_sorted]
+#                    bboxes_idx = bboxes[idx, :].unsqueeze(dim=0)
+                    bboxes_idx = bboxes[:,idx]#.unsqueeze(dim=0)
+                    iou_sorted = iou(bboxes_sorted, bboxes_idx)
+                    # we only need iou < criteria
+                    score_idx_sorted = score_idx_sorted[iou_sorted < criteria]
+                    candidates.append(idx)
+
+                bboxes_out.append(bboxes[candidates, :])
+                scores_out.append(score[candidates])
+                labels_out.extend([i]*len(candidates))
+
 
             #boxes, labels, probs
             if args.perf_counts:
                 perf_count = infer_network.performance_counter(cur_request_id)
                 performance_counts(perf_count)
 ###
-#            best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
+            best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
             for image_idx in range(len(best_results_per_input)):
                 # Show original, denormalized image...
                 image = inputs[image_idx] / 2 + 0.5
