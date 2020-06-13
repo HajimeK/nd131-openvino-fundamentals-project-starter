@@ -72,10 +72,10 @@ class Network:
         log.info("Reading IR...")
         self.core = IECore()
         self.net = IENetwork(model=model_xml, weights=model_bin)
-        supported_layers = self.core.query_network(self.net, device)
+        #supported_layers = self.core.query_network(self.net, device)
         log.info("Loading IR to the plugin...")
 
-        self.net_plugin2 = self.core.load_network(self.net, device)
+        #self.net_plugin2 = self.core.load_network(self.net, device)
 
 
 

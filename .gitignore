@@ -1,2 +1,5 @@
 *.bin
 *.onnx
+webservice/server/package-lock.json
+webservice/ui/package-lock.json
+fac.ffm

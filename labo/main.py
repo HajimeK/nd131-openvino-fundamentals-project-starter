@@ -32,11 +32,7 @@ import paho.mqtt.client as mqtt
 
 from argparse import ArgumentParser
 from inference import Network
-import nvidia.inference as nv_infer
-from nvidia.utils import dboxes300_coco, Encoder
-from kuangliu.encoder import DataEncoder
 import numpy as np
-#from helpers import load_to_IE, preprocessing
 
 # MQTT server environment variables
 HOSTNAME = socket.gethostname()
@@ -45,12 +41,89 @@ MQTT_HOST = IPADDRESS
 MQTT_PORT = 1884
 MQTT_KEEPALIVE_INTERVAL = 60
 
-import torch
-import torchvision.transforms as transforms
-utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd_processing_utils')
-classes_to_labels = utils.get_coco_object_dictionary()
-mean_align=[0.485, 0.456, 0.406]
-std_align=[0.229, 0.224, 0.225]
+coco_classes = {
+    0: 'background',
+    1: 'person',
+    2: 'bicycle',
+    3: 'car',
+    4: 'motorcycle',
+    5: 'airplane',
+    6: 'bus',
+    7: 'train',
+    8: 'truck',
+    9: 'boat',
+    10: 'traffic light',
+    11: 'fire hydrant',
+    12: 'stop sign',
+    13: 'parking meter',
+    14: 'bench',
+    15: 'bird',
+    16: 'cat',
+    17: 'dog',
+    18: 'horse',
+    19: 'sheep',
+    20: 'cow',
+    21: 'elephant',
+    22: 'bear',
+    23: 'zebra',
+    24: 'giraffe',
+    25: 'backpack',
+    26: 'umbrella',
+    27: 'handbag',
+    28: 'tie',
+    29: 'suitcase',
+    30: 'frisbee',
+    31: 'skis',
+    32: 'snowboard',
+    33: 'sports ball',
+    34: 'kite',
+    35: 'baseball bat',
+    36: 'baseball glove',
+    37: 'skateboard',
+    38: 'surfboard',
+    39: 'tennis racket',
+    40: 'bottle',
+    41:'wine glass',
+    42: 'cup',
+    43: 'fork',
+    44: 'knife',
+    45: 'spoon',
+    46: 'bowl',
+    47: 'banana',
+    48: 'apple',
+    49: 'sandwich',
+    50: 'orange',
+    51: 'broccoli',
+    52: 'carrot',
+    53: 'hot dog',
+    54: 'pizza',
+    55: 'donut',
+    56: 'cake',
+    57: 'chair',
+    58: 'couch',
+    59: 'potted plant',
+    60: 'bed',
+    61: 'dining table',
+    62: 'toilet',
+    63: 'tv',
+    64: 'laptop',
+    65: 'mouse',
+    66: 'remote',
+    67: 'keyboard',
+    68: 'cell phone',
+    69: 'microwave',
+    70: 'oven',
+    71: 'toaster',
+    72: 'sink',
+    73: 'refrigerator',
+    74: 'book',
+    75: 'clock',
+    76: 'vase',
+    77: 'scissors',
+    78: 'teddy bear',
+    79: 'hair drier',
+    80: 'toothbrush'
+}
 
 def build_argparser():
     """
@@ -98,62 +171,14 @@ def performance_counts(perf_count):
                                                           stats['status'],
                                                           stats['real_time']))
 
-
-def ssd_out(frame, result):
-    """
-    Parse SSD output.
-
-    :param frame: frame from camera/video
-    :param result: list contains the data to parse ssd
-    :return: person count and frame
-    """
-    current_count = 0
-    for obj in result[0][0]:
-        # Draw bounding box for object when it's probability is more than
-        #  the specified threshold
-        if obj[2] > prob_threshold:
-            xmin = int(obj[3] * initial_w)
-            ymin = int(obj[4] * initial_h)
-            xmax = int(obj[5] * initial_w)
-            ymax = int(obj[6] * initial_h)
-            cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 55, 255), 1)
-            current_count = current_count + 1
-    return frame, current_count
-
-# This function is from https://github.com/kuangliu/pytorch-ssd.
-# Modified to work in non-pytorch tensor
-def iou(box1, box2):
-    '''Compute the intersection over union of two set of boxes, each box is [x1,y1,x2,y2].
-    Args:
-        box1: (tensor) bounding boxes, sized [N,4].
-        box2: (tensor) bounding boxes, sized [M,4].
-    Return:
-        (tensor) iou, sized [N,M].
-    '''
-    N = box1.size
-    M = box2.size
-
-    lt = torch.max(
-        box1[:,:2].unsqueeze(1).expand(N,M,2),  # [N,2] -> [N,1,2] -> [N,M,2]
-        box2[:,:2].unsqueeze(0).expand(N,M,2),  # [M,2] -> [1,M,2] -> [N,M,2]
-    )
-
-    rb = torch.min(
-        box1[:,2:].unsqueeze(1).expand(N,M,2),  # [N,2] -> [N,1,2] -> [N,M,2]
-        box2[:,2:].unsqueeze(0).expand(N,M,2),  # [M,2] -> [1,M,2] -> [N,M,2]
-    )
-
-    wh = rb - lt  # [N,M,2]
-    wh[wh<0] = 0  # clip at 0
-    inter = wh[:,:,0] * wh[:,:,1]  # [N,M]
-
-    area1 = (box1[:,2]-box1[:,0]) * (box1[:,3]-box1[:,1])  # [N,]
-    area2 = (box2[:,2]-box2[:,0]) * (box2[:,3]-box2[:,1])  # [M,]
-    area1 = area1.unsqueeze(1).expand_as(inter)  # [N,] -> [N,1] -> [N,M]
-    area2 = area2.unsqueeze(0).expand_as(inter)  # [M,] -> [1,M] -> [N,M]
-
-    iou = inter / (area1 + area2 - inter)
-    return iou
+def preprocess(n, c, h, w, img):
+    input_shape = (n, c, h, w)
+    img = cv2.resize(img, (h, w))
+    img_data = np.array(img).astype(np.float16)
+    img_data = np.transpose(img_data, [2, 0, 1])
+    img_data = np.expand_dims(img_data, 0)
+    norm_img_data = np.zeros(img_data.shape).astype('float16')
+    return img_data
 
 def main():
     """
@@ -178,12 +203,8 @@ def main():
     # Initialise the class
     infer_network = Network()
     # Load the network to IE plugin to get shape of input layer
-#    n, c, h, w = infer_network.load_model(args.model, args.device, 1, 1,
-    n, c, h, w = infer_network.load_model(args.model, args.device, 1, 2,
+    n, c, h, w = infer_network.load_model(args.model, args.device, 1, 1,
                                           cur_request_id, args.cpu_extension)[1]
-    dboxes = dboxes300_coco()
-    max_num = 200
-
     # Checks for live feed
     if args.input == 'CAM':
         input_stream = 0
@@ -214,92 +235,42 @@ def main():
         if not flag:
             break
         key_pressed = cv2.waitKey(60)
-        # Start async inference
-        image = cv2.resize(frame, (w, h))
-        # Change data layout from HWC to CHW
-        image = image.transpose((2, 0, 1))
-        image = image.reshape((n, c, h, w))
         # Start asynchronous inference for specified request.
         inf_start = time.time()
-###
-        img = np.array([frame, frame, frame]).swapaxes(0,2)
-        img = nv_infer.rescale(frame, 300, 300)
-        img = nv_infer.crop_center(img, 300, 300)
-        img = nv_infer.normalize(img)
-        img = img.reshape((n,c,h,w))
-        infer_network.exec_net(cur_request_id, img)
-###
-###        infer_network.exec_net(cur_request_id, image)
+
+        img_preprocessed = preprocess(n, c, h, w, frame)
+
+        infer_network.exec_net(cur_request_id, img_preprocessed)
+
         # Wait for the result
         if infer_network.wait(cur_request_id) == 0:
             det_time = time.time() - inf_start
             # Results of the output layer of the network
-            bboxes_in = infer_network.get_output(cur_request_id, 'Concat_254')
-            result2 = infer_network.get_output(cur_request_id, 'Concat_255')
-#            for i, score in enumerate(result2.split(1, 1)):
-            bboxes_out = []
-            scores_out = []
-            labels_out = []
-            for i, score in enumerate(result2.squeeze()):
-                # skip background
-                # print(score[score>0.90])
-                if i == 0: continue
-                # print(i)
-
-                #score = score.squeeze(1)
-                mask = score > 0.05
-                bboxes, score = bboxes_in.squeeze()[:,mask], score[mask]
-                if len(score) == 0: continue
-
-                #score_sorted, score_idx_sorted = score.sort(dim=0)
-                score_sorted = np.sort(score)
-                score_idx_sorted = np.argsort(score)
-
-                # select max_output indices
-                score_idx_sorted = score_idx_sorted[-max_num:]
-                candidates = []
-
-                #score_sorted, score_idx_sorted = score.sort(dim=0)
-
-                # select max_output indices
-                #score_idx_sorted = score_idx_sorted[-max_num:]
-                #candidates = []
-                while score_idx_sorted.size > 0:
-                    idx = score_idx_sorted[-1].item()
-                    #bboxes_sorted = bboxes[score_idx_sorted, :]
-                    bboxes_sorted = bboxes[:,score_idx_sorted]
-#                    bboxes_idx = bboxes[idx, :].unsqueeze(dim=0)
-                    bboxes_idx = bboxes[:,idx]#.unsqueeze(dim=0)
-                    iou_sorted = iou(bboxes_sorted, bboxes_idx)
-                    # we only need iou < criteria
-                    score_idx_sorted = score_idx_sorted[iou_sorted < criteria]
-                    candidates.append(idx)
-
-                bboxes_out.append(bboxes[candidates, :])
-                scores_out.append(score[candidates])
-                labels_out.extend([i]*len(candidates))
-
+            output = infer_network.get_output(cur_request_id, 'DetectionOutput')
+            detections = output[0, 0, :, :]
+            current_count = 0
+            for detection in detections:
+                # If only the cifidence rate is above 0.5, then proceed
+                confidence = detection[2]
+                if confidence > .5:
+                    current_count += 1
+                    # detection class
+                    idx = detection[1]
+                    class_name = coco_classes[idx]
+                    log.info(" "+str(idx) + " " + str(confidence) + " " + class_name)
+                    if int(idx) == 1: #only person 
+                        # Get the box to be displayed
+                        axis = detection[3:7] * (initial_w, initial_h, initial_w, initial_h)
+                        (start_X, start_Y, end_X, end_Y) = axis.astype(np.int)[:4]
+                        cv2.rectangle(frame, (start_X, start_Y), (end_X, end_Y), (0, 55, 255), thickness=2)
+                        cv2.putText(frame, class_name, (start_X, start_Y), cv2.FONT_ITALIC, (.0005*initial_w), (0, 0, 255))
 
             #boxes, labels, probs
             if args.perf_counts:
                 perf_count = infer_network.performance_counter(cur_request_id)
                 performance_counts(perf_count)
-###
-            best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
-            for image_idx in range(len(best_results_per_input)):
-                # Show original, denormalized image...
-                image = inputs[image_idx] / 2 + 0.5
-                ax.imshow(image)
-                # ...with detections
-                bboxes, classes, confidences = best_results_per_input[image_idx]
-                for idx in range(len(bboxes)):
-                    left, bot, right, top = bboxes[idx]
-                    x, y, w, h = [val * 300 for val in [left, bot, right - left, top - bot]]
-                    rect = patches.Rectangle((x, y), w, h, linewidth=1, edgecolor='r', facecolor='none')
-                    ax.add_patch(rect)
-                    ax.text(x, y, "{} {:.0f}%".format(classes_to_labels[classes[idx] - 1], confidences[idx]*100), bbox=dict(facecolor='white', alpha=0.5))
-###
-            frame, current_count = ssd_out(frame, result)
+
+            #frame, current_count = ssd_out(frame, result)
             inf_time_message = "Inference time: {:.3f}ms"\
                                .format(det_time * 1000)
             cv2.putText(frame, inf_time_message, (15, 15),
@@ -330,6 +301,9 @@ def main():
 
         if single_image_mode:
             cv2.imwrite('output_image.jpg', frame)
+
+        current_count = 0
+
     cap.release()
     cv2.destroyAllWindows()
     client.disconnect()
