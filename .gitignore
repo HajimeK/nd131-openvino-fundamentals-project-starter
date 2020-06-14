@@ -3,3 +3,7 @@
 webservice/server/package-lock.json
 webservice/ui/package-lock.json
 fac.ffm
+__pycache__/inference.cpython-37.pyc
+model/ssd-10.mapping
+nvidia/__pycache__/inference.cpython-37.pyc
+nvidia/__pycache__/utils.cpython-37.pyc
