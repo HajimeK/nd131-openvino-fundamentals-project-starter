@@ -33,6 +33,7 @@ import paho.mqtt.client as mqtt
 from argparse import ArgumentParser
 from inference import Network
 import numpy as np
+import pandas as pd
 
 # MQTT server environment variables
 HOSTNAME = socket.gethostname()
@@ -165,10 +166,16 @@ def connect_mqtt():
 def preprocess(n, c, h, w, img):
     input_shape = (n, c, h, w)
     img = cv2.resize(img, (h, w))
-    img_data = np.array(img).astype(np.float16)
+
+    hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    h, s, b = cv2.split(hsv)
+    b = cv2.equalizeHist(b)
+    hsv = cv2.merge((h,s,b))
+    img = cv2.cvtColor(img, cv2.COLOR_HSV2RGB)
+    img_data = np.array(img).astype(np.float32)
     img_data = np.transpose(img_data, [2, 0, 1])
     img_data = np.expand_dims(img_data, 0)
-    norm_img_data = np.zeros(img_data.shape).astype('float16')
+    #norm_img_data = np.zeros(img_data.shape).astype('float16')
     return img_data
 
 def infer_on_stream(args, client):
@@ -188,7 +195,7 @@ def infer_on_stream(args, client):
     start_time = 0
     # Flag for the input image
     single_image_mode = False
-
+    det_times_arr = []
 
     ### TODO: Load the model through `` ###
     # Initialise the class
@@ -249,24 +256,25 @@ def infer_on_stream(args, client):
             for detection in detections:
                 # If only the cifidence rate is above 0.5, then proceed
                 confidence = detection[2]
-                if confidence > .5:
-                    current_count += 1
+                if confidence > args.prob_threshold:
                     # detection class
                     idx = detection[1]
+                    if idx > 80:
+                        continue
                     class_name = coco_classes[idx]
                     log.info(" "+str(idx) + " " + str(confidence) + " " + class_name)
                     if int(idx) == 1: #only person 
+                        current_count += 1
                         # Get the box to be displayed
-                        axis = detection[3:7] * (initial_w, initial_h, initial_w, initial_h)
-                        (start_X, start_Y, end_X, end_Y) = axis.astype(np.int)[:4]
-                        cv2.rectangle(frame, (start_X, start_Y), (end_X, end_Y), (0, 55, 255), thickness=2)
-                        cv2.putText(frame, class_name, (start_X, start_Y), cv2.FONT_ITALIC, (.0005*initial_w), (0, 0, 255))
+                    axis = detection[3:7] * (initial_w, initial_h, initial_w, initial_h)
+                    (start_X, start_Y, end_X, end_Y) = axis.astype(np.int)[:4]
+                    cv2.rectangle(frame, (start_X, start_Y), (end_X, end_Y), (0, 55, 255), thickness=2)
+                    cv2.putText(frame, class_name, (start_X, start_Y), cv2.FONT_ITALIC, (.0005*initial_w), (0, 0, 255))
 
             ### TODO: Calculate and send relevant information on ###
             ### current_count, total_count and duration to the MQTT server ###
             ### Topic "person": keys of "count" and "total" ###
             ### Topic "person/duration": key of "duration" ###
-
 
             #frame, current_count = ssd_out(frame, result)
             inf_time_message = "Inference time: {:.3f}ms"\
@@ -293,6 +301,7 @@ def infer_on_stream(args, client):
             if key_pressed == 27:
                 break
 
+        det_times_arr.append(det_time * 1000)
         ### TODO: Send the frame to the FFMPEG server ###
         sys.stdout.buffer.write(frame)  
         sys.stdout.flush()
@@ -307,6 +316,8 @@ def infer_on_stream(args, client):
     cv2.destroyAllWindows()
     client.disconnect()
     #infer_network.clean()
+    df = pd.DataFrame(det_times_arr)
+    log.error(df.describe())
 
 
 def main():

@@ -2,9 +2,9 @@
 <net name="frozen_inference_graph" version="10">
 	<layers>
 		<layer id="0" name="Preprocessor/mul/x/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="0" shape="1,1,1,1" size="2"/>
+			<data element_type="f32" offset="0" shape="1,1,1,1" size="4"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -13,9 +13,9 @@
 			</output>
 		</layer>
 		<layer id="1" name="image_tensor" type="Parameter" version="opset1">
-			<data element_type="f16" shape="1,3,300,300"/>
+			<data element_type="f32" shape="1,3,300,300"/>
 			<output>
-				<port id="0" precision="FP16">
+				<port id="0" precision="FP32">
 					<dim>1</dim>
 					<dim>3</dim>
 					<dim>300</dim>
@@ -39,7 +39,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>3</dim>
 					<dim>300</dim>
@@ -48,9 +48,9 @@
 			</output>
 		</layer>
 		<layer id="3" name="Preprocessor/sub/neg_15159/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2" shape="1,1,1,1" size="2"/>
+			<data element_type="f32" offset="4" shape="1,1,1,1" size="4"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -74,7 +74,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>3</dim>
 					<dim>300</dim>
@@ -83,9 +83,9 @@
 			</output>
 		</layer>
 		<layer id="5" name="image_tensor/reverse_input_channels/Concat23392_const" type="Const" version="opset1">
-			<data element_type="f16" offset="4" shape="32,3,3,3" size="1728"/>
+			<data element_type="f32" offset="8" shape="32,3,3,3" size="3456"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>32</dim>
 					<dim>3</dim>
 					<dim>3</dim>
@@ -110,7 +110,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>150</dim>
@@ -119,9 +119,9 @@
 			</output>
 		</layer>
 		<layer id="7" name="FeatureExtractor/MobilenetV2/Conv/BatchNorm/batchnorm/sub/_100__cf__103/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1732" shape="1,32,1,1" size="64"/>
+			<data element_type="f32" offset="3464" shape="1,32,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -145,7 +145,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>150</dim>
@@ -164,7 +164,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>150</dim>
@@ -172,10 +172,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="10" name="2439124394_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1796" shape="32,1,1,3,3" size="576"/>
+		<layer id="10" name="2446324466_const" type="Const" version="opset1">
+			<data element_type="f32" offset="3592" shape="32,1,1,3,3" size="1152"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>32</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -202,7 +202,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>150</dim>
@@ -211,9 +211,9 @@
 			</output>
 		</layer>
 		<layer id="12" name="FeatureExtractor/MobilenetV2/expanded_conv/depthwise/BatchNorm/batchnorm/sub/_97__cf__100/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2372" shape="1,32,1,1" size="64"/>
+			<data element_type="f32" offset="4744" shape="1,32,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -237,7 +237,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>150</dim>
@@ -256,7 +256,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>150</dim>
@@ -265,9 +265,9 @@
 			</output>
 		</layer>
 		<layer id="15" name="FeatureExtractor/MobilenetV2/expanded_conv/project/weights/read/_95__cf__98/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="2436" shape="16,32,1,1" size="1024"/>
+			<data element_type="f32" offset="4872" shape="16,32,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>16</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -292,7 +292,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>16</dim>
 					<dim>150</dim>
@@ -301,9 +301,9 @@
 			</output>
 		</layer>
 		<layer id="17" name="FeatureExtractor/MobilenetV2/expanded_conv/project/BatchNorm/batchnorm/sub/_94__cf__97/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="3460" shape="1,16,1,1" size="32"/>
+			<data element_type="f32" offset="6920" shape="1,16,1,1" size="64"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -327,7 +327,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>16</dim>
 					<dim>150</dim>
@@ -336,9 +336,9 @@
 			</output>
 		</layer>
 		<layer id="19" name="FeatureExtractor/MobilenetV2/expanded_conv_1/expand/weights/read/_92__cf__95/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="3492" shape="96,16,1,1" size="3072"/>
+			<data element_type="f32" offset="6984" shape="96,16,1,1" size="6144"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>96</dim>
 					<dim>16</dim>
 					<dim>1</dim>
@@ -363,7 +363,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>150</dim>
@@ -372,9 +372,9 @@
 			</output>
 		</layer>
 		<layer id="21" name="FeatureExtractor/MobilenetV2/expanded_conv_1/expand/BatchNorm/batchnorm/sub/_91__cf__94/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="6564" shape="1,96,1,1" size="192"/>
+			<data element_type="f32" offset="13128" shape="1,96,1,1" size="384"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -398,7 +398,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>150</dim>
@@ -417,7 +417,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>150</dim>
@@ -425,10 +425,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="24" name="2449524498_const" type="Const" version="opset1">
-			<data element_type="f16" offset="6756" shape="96,1,1,3,3" size="1728"/>
+		<layer id="24" name="2445524458_const" type="Const" version="opset1">
+			<data element_type="f32" offset="13512" shape="96,1,1,3,3" size="3456"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>96</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -455,7 +455,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>75</dim>
@@ -464,9 +464,9 @@
 			</output>
 		</layer>
 		<layer id="26" name="FeatureExtractor/MobilenetV2/expanded_conv_1/depthwise/BatchNorm/batchnorm/sub/_88__cf__91/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8484" shape="1,96,1,1" size="192"/>
+			<data element_type="f32" offset="16968" shape="1,96,1,1" size="384"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -490,7 +490,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>75</dim>
@@ -509,7 +509,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>75</dim>
@@ -518,9 +518,9 @@
 			</output>
 		</layer>
 		<layer id="29" name="FeatureExtractor/MobilenetV2/expanded_conv_1/project/weights/read/_86__cf__89/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="8676" shape="24,96,1,1" size="4608"/>
+			<data element_type="f32" offset="17352" shape="24,96,1,1" size="9216"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -545,7 +545,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>75</dim>
@@ -554,9 +554,9 @@
 			</output>
 		</layer>
 		<layer id="31" name="FeatureExtractor/MobilenetV2/expanded_conv_1/project/BatchNorm/batchnorm/sub/_85__cf__88/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="13284" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="26568" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -580,7 +580,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>75</dim>
@@ -589,9 +589,9 @@
 			</output>
 		</layer>
 		<layer id="33" name="FeatureExtractor/MobilenetV2/expanded_conv_2/expand/weights/read/_110__cf__113/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="13332" shape="144,24,1,1" size="6912"/>
+			<data element_type="f32" offset="26664" shape="144,24,1,1" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>144</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -616,7 +616,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -625,9 +625,9 @@
 			</output>
 		</layer>
 		<layer id="35" name="FeatureExtractor/MobilenetV2/expanded_conv_2/expand/BatchNorm/batchnorm/sub/_109__cf__112/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="20244" shape="1,144,1,1" size="288"/>
+			<data element_type="f32" offset="40488" shape="1,144,1,1" size="576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>1</dim>
@@ -651,7 +651,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -670,7 +670,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -678,10 +678,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="38" name="2442724430_const" type="Const" version="opset1">
-			<data element_type="f16" offset="20532" shape="144,1,1,3,3" size="2592"/>
+		<layer id="38" name="2443924442_const" type="Const" version="opset1">
+			<data element_type="f32" offset="41064" shape="144,1,1,3,3" size="5184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>144</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -708,7 +708,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -717,9 +717,9 @@
 			</output>
 		</layer>
 		<layer id="40" name="FeatureExtractor/MobilenetV2/expanded_conv_2/depthwise/BatchNorm/batchnorm/sub/_106__cf__109/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="23124" shape="1,144,1,1" size="288"/>
+			<data element_type="f32" offset="46248" shape="1,144,1,1" size="576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>1</dim>
@@ -743,7 +743,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -762,7 +762,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -771,9 +771,9 @@
 			</output>
 		</layer>
 		<layer id="43" name="FeatureExtractor/MobilenetV2/expanded_conv_2/project/weights/read/_104__cf__107/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="23412" shape="24,144,1,1" size="6912"/>
+			<data element_type="f32" offset="46824" shape="24,144,1,1" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>144</dim>
 					<dim>1</dim>
@@ -798,7 +798,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>75</dim>
@@ -807,9 +807,9 @@
 			</output>
 		</layer>
 		<layer id="45" name="FeatureExtractor/MobilenetV2/expanded_conv_2/project/BatchNorm/batchnorm/sub/_103__cf__106/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="30324" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="60648" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -833,7 +833,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>75</dim>
@@ -857,7 +857,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>75</dim>
@@ -866,9 +866,9 @@
 			</output>
 		</layer>
 		<layer id="48" name="FeatureExtractor/MobilenetV2/expanded_conv_3/expand/weights/read/_83__cf__86/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="30372" shape="144,24,1,1" size="6912"/>
+			<data element_type="f32" offset="60744" shape="144,24,1,1" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>144</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -893,7 +893,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -902,9 +902,9 @@
 			</output>
 		</layer>
 		<layer id="50" name="FeatureExtractor/MobilenetV2/expanded_conv_3/expand/BatchNorm/batchnorm/sub/_82__cf__85/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="37284" shape="1,144,1,1" size="288"/>
+			<data element_type="f32" offset="74568" shape="1,144,1,1" size="576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>1</dim>
@@ -928,7 +928,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -947,7 +947,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>75</dim>
@@ -955,10 +955,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="53" name="2437524378_const" type="Const" version="opset1">
-			<data element_type="f16" offset="37572" shape="144,1,1,3,3" size="2592"/>
+		<layer id="53" name="2443524438_const" type="Const" version="opset1">
+			<data element_type="f32" offset="75144" shape="144,1,1,3,3" size="5184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>144</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -985,7 +985,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>38</dim>
@@ -994,9 +994,9 @@
 			</output>
 		</layer>
 		<layer id="55" name="FeatureExtractor/MobilenetV2/expanded_conv_3/depthwise/BatchNorm/batchnorm/sub/_79__cf__82/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="40164" shape="1,144,1,1" size="288"/>
+			<data element_type="f32" offset="80328" shape="1,144,1,1" size="576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>1</dim>
@@ -1020,7 +1020,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>38</dim>
@@ -1039,7 +1039,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>144</dim>
 					<dim>38</dim>
@@ -1048,9 +1048,9 @@
 			</output>
 		</layer>
 		<layer id="58" name="FeatureExtractor/MobilenetV2/expanded_conv_3/project/weights/read/_77__cf__80/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="40452" shape="32,144,1,1" size="9216"/>
+			<data element_type="f32" offset="80904" shape="32,144,1,1" size="18432"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>32</dim>
 					<dim>144</dim>
 					<dim>1</dim>
@@ -1075,7 +1075,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1084,9 +1084,9 @@
 			</output>
 		</layer>
 		<layer id="60" name="FeatureExtractor/MobilenetV2/expanded_conv_3/project/BatchNorm/batchnorm/sub/_76__cf__79/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="49668" shape="1,32,1,1" size="64"/>
+			<data element_type="f32" offset="99336" shape="1,32,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -1110,7 +1110,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1119,9 +1119,9 @@
 			</output>
 		</layer>
 		<layer id="62" name="FeatureExtractor/MobilenetV2/expanded_conv_4/expand/weights/read/_119__cf__122/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="49732" shape="192,32,1,1" size="12288"/>
+			<data element_type="f32" offset="99464" shape="192,32,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>192</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -1146,7 +1146,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1155,9 +1155,9 @@
 			</output>
 		</layer>
 		<layer id="64" name="FeatureExtractor/MobilenetV2/expanded_conv_4/expand/BatchNorm/batchnorm/sub/_118__cf__121/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="62020" shape="1,192,1,1" size="384"/>
+			<data element_type="f32" offset="124040" shape="1,192,1,1" size="768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1181,7 +1181,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1200,7 +1200,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1208,10 +1208,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="67" name="2447924482_const" type="Const" version="opset1">
-			<data element_type="f16" offset="62404" shape="192,1,1,3,3" size="3456"/>
+		<layer id="67" name="2446724470_const" type="Const" version="opset1">
+			<data element_type="f32" offset="124808" shape="192,1,1,3,3" size="6912"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>192</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -1238,7 +1238,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1247,9 +1247,9 @@
 			</output>
 		</layer>
 		<layer id="69" name="FeatureExtractor/MobilenetV2/expanded_conv_4/depthwise/BatchNorm/batchnorm/sub/_115__cf__118/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="65860" shape="1,192,1,1" size="384"/>
+			<data element_type="f32" offset="131720" shape="1,192,1,1" size="768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1273,7 +1273,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1292,7 +1292,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1301,9 +1301,9 @@
 			</output>
 		</layer>
 		<layer id="72" name="FeatureExtractor/MobilenetV2/expanded_conv_4/project/weights/read/_113__cf__116/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="66244" shape="32,192,1,1" size="12288"/>
+			<data element_type="f32" offset="132488" shape="32,192,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>32</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1328,7 +1328,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1337,9 +1337,9 @@
 			</output>
 		</layer>
 		<layer id="74" name="FeatureExtractor/MobilenetV2/expanded_conv_4/project/BatchNorm/batchnorm/sub/_112__cf__115/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="78532" shape="1,32,1,1" size="64"/>
+			<data element_type="f32" offset="157064" shape="1,32,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -1363,7 +1363,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1387,7 +1387,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1396,9 +1396,9 @@
 			</output>
 		</layer>
 		<layer id="77" name="FeatureExtractor/MobilenetV2/expanded_conv_5/expand/weights/read/_128__cf__131/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="78596" shape="192,32,1,1" size="12288"/>
+			<data element_type="f32" offset="157192" shape="192,32,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>192</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -1423,7 +1423,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1432,9 +1432,9 @@
 			</output>
 		</layer>
 		<layer id="79" name="FeatureExtractor/MobilenetV2/expanded_conv_5/expand/BatchNorm/batchnorm/sub/_127__cf__130/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="90884" shape="1,192,1,1" size="384"/>
+			<data element_type="f32" offset="181768" shape="1,192,1,1" size="768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1458,7 +1458,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1477,7 +1477,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1485,10 +1485,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="82" name="2446724470_const" type="Const" version="opset1">
-			<data element_type="f16" offset="91268" shape="192,1,1,3,3" size="3456"/>
+		<layer id="82" name="2444724450_const" type="Const" version="opset1">
+			<data element_type="f32" offset="182536" shape="192,1,1,3,3" size="6912"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>192</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -1515,7 +1515,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1524,9 +1524,9 @@
 			</output>
 		</layer>
 		<layer id="84" name="FeatureExtractor/MobilenetV2/expanded_conv_5/depthwise/BatchNorm/batchnorm/sub/_124__cf__127/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="94724" shape="1,192,1,1" size="384"/>
+			<data element_type="f32" offset="189448" shape="1,192,1,1" size="768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1550,7 +1550,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1569,7 +1569,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1578,9 +1578,9 @@
 			</output>
 		</layer>
 		<layer id="87" name="FeatureExtractor/MobilenetV2/expanded_conv_5/project/weights/read/_122__cf__125/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="95108" shape="32,192,1,1" size="12288"/>
+			<data element_type="f32" offset="190216" shape="32,192,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>32</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1605,7 +1605,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1614,9 +1614,9 @@
 			</output>
 		</layer>
 		<layer id="89" name="FeatureExtractor/MobilenetV2/expanded_conv_5/project/BatchNorm/batchnorm/sub/_121__cf__124/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="107396" shape="1,32,1,1" size="64"/>
+			<data element_type="f32" offset="214792" shape="1,32,1,1" size="128"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -1640,7 +1640,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1664,7 +1664,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>32</dim>
 					<dim>38</dim>
@@ -1673,9 +1673,9 @@
 			</output>
 		</layer>
 		<layer id="92" name="FeatureExtractor/MobilenetV2/expanded_conv_6/expand/weights/read/_74__cf__77/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="107460" shape="192,32,1,1" size="12288"/>
+			<data element_type="f32" offset="214920" shape="192,32,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>192</dim>
 					<dim>32</dim>
 					<dim>1</dim>
@@ -1700,7 +1700,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1709,9 +1709,9 @@
 			</output>
 		</layer>
 		<layer id="94" name="FeatureExtractor/MobilenetV2/expanded_conv_6/expand/BatchNorm/batchnorm/sub/_73__cf__76/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="119748" shape="1,192,1,1" size="384"/>
+			<data element_type="f32" offset="239496" shape="1,192,1,1" size="768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1735,7 +1735,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1754,7 +1754,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>38</dim>
@@ -1762,10 +1762,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="97" name="2443124434_const" type="Const" version="opset1">
-			<data element_type="f16" offset="120132" shape="192,1,1,3,3" size="3456"/>
+		<layer id="97" name="2438324386_const" type="Const" version="opset1">
+			<data element_type="f32" offset="240264" shape="192,1,1,3,3" size="6912"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>192</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -1792,7 +1792,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>19</dim>
@@ -1801,9 +1801,9 @@
 			</output>
 		</layer>
 		<layer id="99" name="FeatureExtractor/MobilenetV2/expanded_conv_6/depthwise/BatchNorm/batchnorm/sub/_70__cf__73/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="123588" shape="1,192,1,1" size="384"/>
+			<data element_type="f32" offset="247176" shape="1,192,1,1" size="768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1827,7 +1827,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>19</dim>
@@ -1846,7 +1846,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>192</dim>
 					<dim>19</dim>
@@ -1855,9 +1855,9 @@
 			</output>
 		</layer>
 		<layer id="102" name="FeatureExtractor/MobilenetV2/expanded_conv_6/project/weights/read/_68__cf__71/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="123972" shape="64,192,1,1" size="24576"/>
+			<data element_type="f32" offset="247944" shape="64,192,1,1" size="49152"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>64</dim>
 					<dim>192</dim>
 					<dim>1</dim>
@@ -1882,7 +1882,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -1891,9 +1891,9 @@
 			</output>
 		</layer>
 		<layer id="104" name="FeatureExtractor/MobilenetV2/expanded_conv_6/project/BatchNorm/batchnorm/sub/_67__cf__70/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="148548" shape="1,64,1,1" size="128"/>
+			<data element_type="f32" offset="297096" shape="1,64,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -1917,7 +1917,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -1926,9 +1926,9 @@
 			</output>
 		</layer>
 		<layer id="106" name="FeatureExtractor/MobilenetV2/expanded_conv_7/expand/weights/read/_137__cf__140/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="148676" shape="384,64,1,1" size="49152"/>
+			<data element_type="f32" offset="297352" shape="384,64,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -1953,7 +1953,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -1962,9 +1962,9 @@
 			</output>
 		</layer>
 		<layer id="108" name="FeatureExtractor/MobilenetV2/expanded_conv_7/expand/BatchNorm/batchnorm/sub/_136__cf__139/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="197828" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="395656" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -1988,7 +1988,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2007,7 +2007,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2015,10 +2015,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="111" name="2447124474_const" type="Const" version="opset1">
-			<data element_type="f16" offset="198596" shape="384,1,1,3,3" size="6912"/>
+		<layer id="111" name="2444324446_const" type="Const" version="opset1">
+			<data element_type="f32" offset="397192" shape="384,1,1,3,3" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -2045,7 +2045,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2054,9 +2054,9 @@
 			</output>
 		</layer>
 		<layer id="113" name="FeatureExtractor/MobilenetV2/expanded_conv_7/depthwise/BatchNorm/batchnorm/sub/_133__cf__136/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="205508" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="411016" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2080,7 +2080,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2099,7 +2099,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2108,9 +2108,9 @@
 			</output>
 		</layer>
 		<layer id="116" name="FeatureExtractor/MobilenetV2/expanded_conv_7/project/weights/read/_131__cf__134/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="206276" shape="64,384,1,1" size="49152"/>
+			<data element_type="f32" offset="412552" shape="64,384,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>64</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2135,7 +2135,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2144,9 +2144,9 @@
 			</output>
 		</layer>
 		<layer id="118" name="FeatureExtractor/MobilenetV2/expanded_conv_7/project/BatchNorm/batchnorm/sub/_130__cf__133/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="255428" shape="1,64,1,1" size="128"/>
+			<data element_type="f32" offset="510856" shape="1,64,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -2170,7 +2170,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2194,7 +2194,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2203,9 +2203,9 @@
 			</output>
 		</layer>
 		<layer id="121" name="FeatureExtractor/MobilenetV2/expanded_conv_8/expand/weights/read/_146__cf__149/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="255556" shape="384,64,1,1" size="49152"/>
+			<data element_type="f32" offset="511112" shape="384,64,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -2230,7 +2230,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2239,9 +2239,9 @@
 			</output>
 		</layer>
 		<layer id="123" name="FeatureExtractor/MobilenetV2/expanded_conv_8/expand/BatchNorm/batchnorm/sub/_145__cf__148/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="304708" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="609416" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2265,7 +2265,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2284,7 +2284,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2292,10 +2292,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="126" name="2441924422_const" type="Const" version="opset1">
-			<data element_type="f16" offset="305476" shape="384,1,1,3,3" size="6912"/>
+		<layer id="126" name="2437924382_const" type="Const" version="opset1">
+			<data element_type="f32" offset="610952" shape="384,1,1,3,3" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -2322,7 +2322,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2331,9 +2331,9 @@
 			</output>
 		</layer>
 		<layer id="128" name="FeatureExtractor/MobilenetV2/expanded_conv_8/depthwise/BatchNorm/batchnorm/sub/_142__cf__145/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="312388" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="624776" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2357,7 +2357,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2376,7 +2376,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2385,9 +2385,9 @@
 			</output>
 		</layer>
 		<layer id="131" name="FeatureExtractor/MobilenetV2/expanded_conv_8/project/weights/read/_140__cf__143/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="313156" shape="64,384,1,1" size="49152"/>
+			<data element_type="f32" offset="626312" shape="64,384,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>64</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2412,7 +2412,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2421,9 +2421,9 @@
 			</output>
 		</layer>
 		<layer id="133" name="FeatureExtractor/MobilenetV2/expanded_conv_8/project/BatchNorm/batchnorm/sub/_139__cf__142/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="362308" shape="1,64,1,1" size="128"/>
+			<data element_type="f32" offset="724616" shape="1,64,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -2447,7 +2447,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2471,7 +2471,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2480,9 +2480,9 @@
 			</output>
 		</layer>
 		<layer id="136" name="FeatureExtractor/MobilenetV2/expanded_conv_9/expand/weights/read/_155__cf__158/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="362436" shape="384,64,1,1" size="49152"/>
+			<data element_type="f32" offset="724872" shape="384,64,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -2507,7 +2507,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2516,9 +2516,9 @@
 			</output>
 		</layer>
 		<layer id="138" name="FeatureExtractor/MobilenetV2/expanded_conv_9/expand/BatchNorm/batchnorm/sub/_154__cf__157/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="411588" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="823176" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2542,7 +2542,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2561,7 +2561,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2570,9 +2570,9 @@
 			</output>
 		</layer>
 		<layer id="141" name="2448324486_const" type="Const" version="opset1">
-			<data element_type="f16" offset="412356" shape="384,1,1,3,3" size="6912"/>
+			<data element_type="f32" offset="824712" shape="384,1,1,3,3" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -2599,7 +2599,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2608,9 +2608,9 @@
 			</output>
 		</layer>
 		<layer id="143" name="FeatureExtractor/MobilenetV2/expanded_conv_9/depthwise/BatchNorm/batchnorm/sub/_151__cf__154/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="419268" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="838536" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2634,7 +2634,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2653,7 +2653,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2662,9 +2662,9 @@
 			</output>
 		</layer>
 		<layer id="146" name="FeatureExtractor/MobilenetV2/expanded_conv_9/project/weights/read/_149__cf__152/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="420036" shape="64,384,1,1" size="49152"/>
+			<data element_type="f32" offset="840072" shape="64,384,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>64</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2689,7 +2689,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2698,9 +2698,9 @@
 			</output>
 		</layer>
 		<layer id="148" name="FeatureExtractor/MobilenetV2/expanded_conv_9/project/BatchNorm/batchnorm/sub/_148__cf__151/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="469188" shape="1,64,1,1" size="128"/>
+			<data element_type="f32" offset="938376" shape="1,64,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -2724,7 +2724,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2748,7 +2748,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>19</dim>
@@ -2757,9 +2757,9 @@
 			</output>
 		</layer>
 		<layer id="151" name="FeatureExtractor/MobilenetV2/expanded_conv_10/expand/weights/read/_65__cf__68/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="469316" shape="384,64,1,1" size="49152"/>
+			<data element_type="f32" offset="938632" shape="384,64,1,1" size="98304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -2784,7 +2784,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2793,9 +2793,9 @@
 			</output>
 		</layer>
 		<layer id="153" name="FeatureExtractor/MobilenetV2/expanded_conv_10/expand/BatchNorm/batchnorm/sub/_64__cf__67/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="518468" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="1036936" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2819,7 +2819,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2838,7 +2838,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2846,10 +2846,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="156" name="2449124494_const" type="Const" version="opset1">
-			<data element_type="f16" offset="519236" shape="384,1,1,3,3" size="6912"/>
+		<layer id="156" name="2438724390_const" type="Const" version="opset1">
+			<data element_type="f32" offset="1038472" shape="384,1,1,3,3" size="13824"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>384</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -2876,7 +2876,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2885,9 +2885,9 @@
 			</output>
 		</layer>
 		<layer id="158" name="FeatureExtractor/MobilenetV2/expanded_conv_10/depthwise/BatchNorm/batchnorm/sub/_61__cf__64/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="526148" shape="1,384,1,1" size="768"/>
+			<data element_type="f32" offset="1052296" shape="1,384,1,1" size="1536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2911,7 +2911,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2930,7 +2930,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>384</dim>
 					<dim>19</dim>
@@ -2939,9 +2939,9 @@
 			</output>
 		</layer>
 		<layer id="161" name="FeatureExtractor/MobilenetV2/expanded_conv_10/project/weights/read/_59__cf__62/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="526916" shape="96,384,1,1" size="73728"/>
+			<data element_type="f32" offset="1053832" shape="96,384,1,1" size="147456"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>96</dim>
 					<dim>384</dim>
 					<dim>1</dim>
@@ -2966,7 +2966,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -2975,9 +2975,9 @@
 			</output>
 		</layer>
 		<layer id="163" name="FeatureExtractor/MobilenetV2/expanded_conv_10/project/BatchNorm/batchnorm/sub/_58__cf__61/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="600644" shape="1,96,1,1" size="192"/>
+			<data element_type="f32" offset="1201288" shape="1,96,1,1" size="384"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -3001,7 +3001,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3010,9 +3010,9 @@
 			</output>
 		</layer>
 		<layer id="165" name="FeatureExtractor/MobilenetV2/expanded_conv_11/expand/weights/read/_164__cf__167/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="600836" shape="576,96,1,1" size="110592"/>
+			<data element_type="f32" offset="1201672" shape="576,96,1,1" size="221184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -3037,7 +3037,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3046,9 +3046,9 @@
 			</output>
 		</layer>
 		<layer id="167" name="FeatureExtractor/MobilenetV2/expanded_conv_11/expand/BatchNorm/batchnorm/sub/_163__cf__166/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="711428" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="1422856" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3072,7 +3072,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3091,7 +3091,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3099,10 +3099,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="170" name="2450324506_const" type="Const" version="opset1">
-			<data element_type="f16" offset="712580" shape="576,1,1,3,3" size="10368"/>
+		<layer id="170" name="2445924462_const" type="Const" version="opset1">
+			<data element_type="f32" offset="1425160" shape="576,1,1,3,3" size="20736"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -3129,7 +3129,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3138,9 +3138,9 @@
 			</output>
 		</layer>
 		<layer id="172" name="FeatureExtractor/MobilenetV2/expanded_conv_11/depthwise/BatchNorm/batchnorm/sub/_160__cf__163/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="722948" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="1445896" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3164,7 +3164,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3183,7 +3183,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3192,9 +3192,9 @@
 			</output>
 		</layer>
 		<layer id="175" name="FeatureExtractor/MobilenetV2/expanded_conv_11/project/weights/read/_158__cf__161/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="724100" shape="96,576,1,1" size="110592"/>
+			<data element_type="f32" offset="1448200" shape="96,576,1,1" size="221184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>96</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3219,7 +3219,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3228,9 +3228,9 @@
 			</output>
 		</layer>
 		<layer id="177" name="FeatureExtractor/MobilenetV2/expanded_conv_11/project/BatchNorm/batchnorm/sub/_157__cf__160/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="834692" shape="1,96,1,1" size="192"/>
+			<data element_type="f32" offset="1669384" shape="1,96,1,1" size="384"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -3254,7 +3254,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3278,7 +3278,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3287,9 +3287,9 @@
 			</output>
 		</layer>
 		<layer id="180" name="FeatureExtractor/MobilenetV2/expanded_conv_12/expand/weights/read/_173__cf__176/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="834884" shape="576,96,1,1" size="110592"/>
+			<data element_type="f32" offset="1669768" shape="576,96,1,1" size="221184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -3314,7 +3314,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3323,9 +3323,9 @@
 			</output>
 		</layer>
 		<layer id="182" name="FeatureExtractor/MobilenetV2/expanded_conv_12/expand/BatchNorm/batchnorm/sub/_172__cf__175/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="945476" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="1890952" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3349,7 +3349,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3368,7 +3368,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3376,10 +3376,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="185" name="2445524458_const" type="Const" version="opset1">
-			<data element_type="f16" offset="946628" shape="576,1,1,3,3" size="10368"/>
+		<layer id="185" name="2445124454_const" type="Const" version="opset1">
+			<data element_type="f32" offset="1893256" shape="576,1,1,3,3" size="20736"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -3406,7 +3406,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3415,9 +3415,9 @@
 			</output>
 		</layer>
 		<layer id="187" name="FeatureExtractor/MobilenetV2/expanded_conv_12/depthwise/BatchNorm/batchnorm/sub/_169__cf__172/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="956996" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="1913992" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3441,7 +3441,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3460,7 +3460,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3469,9 +3469,9 @@
 			</output>
 		</layer>
 		<layer id="190" name="FeatureExtractor/MobilenetV2/expanded_conv_12/project/weights/read/_167__cf__170/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="958148" shape="96,576,1,1" size="110592"/>
+			<data element_type="f32" offset="1916296" shape="96,576,1,1" size="221184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>96</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3496,7 +3496,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3505,9 +3505,9 @@
 			</output>
 		</layer>
 		<layer id="192" name="FeatureExtractor/MobilenetV2/expanded_conv_12/project/BatchNorm/batchnorm/sub/_166__cf__169/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1068740" shape="1,96,1,1" size="192"/>
+			<data element_type="f32" offset="2137480" shape="1,96,1,1" size="384"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -3531,7 +3531,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3555,7 +3555,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>96</dim>
 					<dim>19</dim>
@@ -3564,9 +3564,9 @@
 			</output>
 		</layer>
 		<layer id="195" name="FeatureExtractor/MobilenetV2/expanded_conv_13/expand/weights/read/_56__cf__59/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="1068932" shape="576,96,1,1" size="110592"/>
+			<data element_type="f32" offset="2137864" shape="576,96,1,1" size="221184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>96</dim>
 					<dim>1</dim>
@@ -3591,7 +3591,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3600,9 +3600,9 @@
 			</output>
 		</layer>
 		<layer id="197" name="FeatureExtractor/MobilenetV2/expanded_conv_13/expand/BatchNorm/batchnorm/sub/_55__cf__58/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1179524" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="2359048" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3626,7 +3626,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3645,7 +3645,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3653,10 +3653,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="200" name="2448724490_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1180676" shape="576,1,1,3,3" size="10368"/>
+		<layer id="200" name="2447524478_const" type="Const" version="opset1">
+			<data element_type="f32" offset="2361352" shape="576,1,1,3,3" size="20736"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -3683,7 +3683,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3692,9 +3692,9 @@
 			</output>
 		</layer>
 		<layer id="202" name="data_add_1566915674/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1191044" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="2382088" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3718,7 +3718,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3737,7 +3737,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -3746,9 +3746,9 @@
 			</output>
 		</layer>
 		<layer id="205" name="BoxPredictor_0/BoxEncodingPredictor/weights/read/_228__cf__231/ReshapeBack/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="1192196" shape="12,576,1,1" size="13824"/>
+			<data element_type="f32" offset="2384392" shape="12,576,1,1" size="27648"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>12</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3773,7 +3773,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>12</dim>
 					<dim>19</dim>
@@ -3782,9 +3782,9 @@
 			</output>
 		</layer>
 		<layer id="207" name="BoxPredictor_0/BoxEncodingPredictor/biases/read/_227__cf__230/ReshapeBack/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1206020" shape="1,12,1,1" size="24"/>
+			<data element_type="f32" offset="2412040" shape="1,12,1,1" size="48"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>12</dim>
 					<dim>1</dim>
@@ -3808,7 +3808,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>12</dim>
 					<dim>19</dim>
@@ -3816,8 +3816,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="209" name="BoxPredictor_0/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125088_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="209" name="BoxPredictor_0/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_124974_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -3837,7 +3837,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>19</dim>
 					<dim>19</dim>
@@ -3845,8 +3845,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="211" name="BoxPredictor_0/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125034_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206076" shape="3" size="24"/>
+		<layer id="211" name="BoxPredictor_0/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125048_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412120" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -3867,17 +3867,17 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1083</dim>
 					<dim>4</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="213" name="2446324466_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1206100" shape="576,1,1,3,3" size="10368"/>
+		<layer id="213" name="2439124394_const" type="Const" version="opset1">
+			<data element_type="f32" offset="2412144" shape="576,1,1,3,3" size="20736"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -3904,7 +3904,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>10</dim>
@@ -3913,9 +3913,9 @@
 			</output>
 		</layer>
 		<layer id="215" name="FeatureExtractor/MobilenetV2/expanded_conv_13/depthwise/BatchNorm/batchnorm/sub/_52__cf__55/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1216468" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="2432880" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3939,7 +3939,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>10</dim>
@@ -3958,7 +3958,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>10</dim>
@@ -3967,9 +3967,9 @@
 			</output>
 		</layer>
 		<layer id="218" name="FeatureExtractor/MobilenetV2/expanded_conv_13/project/weights/read/_50__cf__53/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="1217620" shape="160,576,1,1" size="184320"/>
+			<data element_type="f32" offset="2435184" shape="160,576,1,1" size="368640"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>160</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -3994,7 +3994,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4003,9 +4003,9 @@
 			</output>
 		</layer>
 		<layer id="220" name="FeatureExtractor/MobilenetV2/expanded_conv_13/project/BatchNorm/batchnorm/sub/_49__cf__52/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1401940" shape="1,160,1,1" size="320"/>
+			<data element_type="f32" offset="2803824" shape="1,160,1,1" size="640"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>1</dim>
@@ -4029,7 +4029,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4038,9 +4038,9 @@
 			</output>
 		</layer>
 		<layer id="222" name="FeatureExtractor/MobilenetV2/expanded_conv_14/expand/weights/read/_182__cf__185/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="1402260" shape="960,160,1,1" size="307200"/>
+			<data element_type="f32" offset="2804464" shape="960,160,1,1" size="614400"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>960</dim>
 					<dim>160</dim>
 					<dim>1</dim>
@@ -4065,7 +4065,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4074,9 +4074,9 @@
 			</output>
 		</layer>
 		<layer id="224" name="FeatureExtractor/MobilenetV2/expanded_conv_14/expand/BatchNorm/batchnorm/sub/_181__cf__184/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1709460" shape="1,960,1,1" size="1920"/>
+			<data element_type="f32" offset="3418864" shape="1,960,1,1" size="3840"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4100,7 +4100,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4119,7 +4119,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4127,10 +4127,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="227" name="2439524398_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1711380" shape="960,1,1,3,3" size="17280"/>
+		<layer id="227" name="2449924502_const" type="Const" version="opset1">
+			<data element_type="f32" offset="3422704" shape="960,1,1,3,3" size="34560"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>960</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -4157,7 +4157,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4166,9 +4166,9 @@
 			</output>
 		</layer>
 		<layer id="229" name="FeatureExtractor/MobilenetV2/expanded_conv_14/depthwise/BatchNorm/batchnorm/sub/_178__cf__181/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="1728660" shape="1,960,1,1" size="1920"/>
+			<data element_type="f32" offset="3457264" shape="1,960,1,1" size="3840"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4192,7 +4192,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4211,7 +4211,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4220,9 +4220,9 @@
 			</output>
 		</layer>
 		<layer id="232" name="FeatureExtractor/MobilenetV2/expanded_conv_14/project/weights/read/_176__cf__179/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="1730580" shape="160,960,1,1" size="307200"/>
+			<data element_type="f32" offset="3461104" shape="160,960,1,1" size="614400"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>160</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4247,7 +4247,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4256,9 +4256,9 @@
 			</output>
 		</layer>
 		<layer id="234" name="FeatureExtractor/MobilenetV2/expanded_conv_14/project/BatchNorm/batchnorm/sub/_175__cf__178/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2037780" shape="1,160,1,1" size="320"/>
+			<data element_type="f32" offset="4075504" shape="1,160,1,1" size="640"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>1</dim>
@@ -4282,7 +4282,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4306,7 +4306,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4315,9 +4315,9 @@
 			</output>
 		</layer>
 		<layer id="237" name="FeatureExtractor/MobilenetV2/expanded_conv_15/expand/weights/read/_191__cf__194/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="2038100" shape="960,160,1,1" size="307200"/>
+			<data element_type="f32" offset="4076144" shape="960,160,1,1" size="614400"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>960</dim>
 					<dim>160</dim>
 					<dim>1</dim>
@@ -4342,7 +4342,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4351,9 +4351,9 @@
 			</output>
 		</layer>
 		<layer id="239" name="FeatureExtractor/MobilenetV2/expanded_conv_15/expand/BatchNorm/batchnorm/sub/_190__cf__193/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2345300" shape="1,960,1,1" size="1920"/>
+			<data element_type="f32" offset="4690544" shape="1,960,1,1" size="3840"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4377,7 +4377,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4396,7 +4396,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4404,10 +4404,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="242" name="2449924502_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2347220" shape="960,1,1,3,3" size="17280"/>
+		<layer id="242" name="2439524398_const" type="Const" version="opset1">
+			<data element_type="f32" offset="4694384" shape="960,1,1,3,3" size="34560"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>960</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -4434,7 +4434,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4443,9 +4443,9 @@
 			</output>
 		</layer>
 		<layer id="244" name="FeatureExtractor/MobilenetV2/expanded_conv_15/depthwise/BatchNorm/batchnorm/sub/_187__cf__190/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2364500" shape="1,960,1,1" size="1920"/>
+			<data element_type="f32" offset="4728944" shape="1,960,1,1" size="3840"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4469,7 +4469,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4488,7 +4488,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4497,9 +4497,9 @@
 			</output>
 		</layer>
 		<layer id="247" name="FeatureExtractor/MobilenetV2/expanded_conv_15/project/weights/read/_185__cf__188/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="2366420" shape="160,960,1,1" size="307200"/>
+			<data element_type="f32" offset="4732784" shape="160,960,1,1" size="614400"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>160</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4524,7 +4524,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4533,9 +4533,9 @@
 			</output>
 		</layer>
 		<layer id="249" name="FeatureExtractor/MobilenetV2/expanded_conv_15/project/BatchNorm/batchnorm/sub/_184__cf__187/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2673620" shape="1,160,1,1" size="320"/>
+			<data element_type="f32" offset="5347184" shape="1,160,1,1" size="640"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>1</dim>
@@ -4559,7 +4559,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4583,7 +4583,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>160</dim>
 					<dim>10</dim>
@@ -4592,9 +4592,9 @@
 			</output>
 		</layer>
 		<layer id="252" name="FeatureExtractor/MobilenetV2/expanded_conv_16/expand/weights/read/_47__cf__50/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="2673940" shape="960,160,1,1" size="307200"/>
+			<data element_type="f32" offset="5347824" shape="960,160,1,1" size="614400"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>960</dim>
 					<dim>160</dim>
 					<dim>1</dim>
@@ -4619,7 +4619,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4628,9 +4628,9 @@
 			</output>
 		</layer>
 		<layer id="254" name="FeatureExtractor/MobilenetV2/expanded_conv_16/expand/BatchNorm/batchnorm/sub/_46__cf__49/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2981140" shape="1,960,1,1" size="1920"/>
+			<data element_type="f32" offset="5962224" shape="1,960,1,1" size="3840"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4654,7 +4654,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4673,7 +4673,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4681,10 +4681,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="257" name="2445924462_const" type="Const" version="opset1">
-			<data element_type="f16" offset="2983060" shape="960,1,1,3,3" size="17280"/>
+		<layer id="257" name="2442324426_const" type="Const" version="opset1">
+			<data element_type="f32" offset="5966064" shape="960,1,1,3,3" size="34560"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>960</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -4711,7 +4711,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4720,9 +4720,9 @@
 			</output>
 		</layer>
 		<layer id="259" name="FeatureExtractor/MobilenetV2/expanded_conv_16/depthwise/BatchNorm/batchnorm/sub/_43__cf__46/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="3000340" shape="1,960,1,1" size="1920"/>
+			<data element_type="f32" offset="6000624" shape="1,960,1,1" size="3840"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4746,7 +4746,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4765,7 +4765,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>960</dim>
 					<dim>10</dim>
@@ -4774,9 +4774,9 @@
 			</output>
 		</layer>
 		<layer id="262" name="FeatureExtractor/MobilenetV2/expanded_conv_16/project/weights/read/_41__cf__44/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="3002260" shape="320,960,1,1" size="614400"/>
+			<data element_type="f32" offset="6004464" shape="320,960,1,1" size="1228800"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>320</dim>
 					<dim>960</dim>
 					<dim>1</dim>
@@ -4801,7 +4801,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>320</dim>
 					<dim>10</dim>
@@ -4810,9 +4810,9 @@
 			</output>
 		</layer>
 		<layer id="264" name="FeatureExtractor/MobilenetV2/expanded_conv_16/project/BatchNorm/batchnorm/sub/_40__cf__43/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="3616660" shape="1,320,1,1" size="640"/>
+			<data element_type="f32" offset="7233264" shape="1,320,1,1" size="1280"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>320</dim>
 					<dim>1</dim>
@@ -4836,7 +4836,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>320</dim>
 					<dim>10</dim>
@@ -4845,9 +4845,9 @@
 			</output>
 		</layer>
 		<layer id="266" name="FeatureExtractor/MobilenetV2/Conv_1/weights/read/_38__cf__41/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="3617300" shape="1280,320,1,1" size="819200"/>
+			<data element_type="f32" offset="7234544" shape="1280,320,1,1" size="1638400"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1280</dim>
 					<dim>320</dim>
 					<dim>1</dim>
@@ -4872,7 +4872,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -4881,9 +4881,9 @@
 			</output>
 		</layer>
 		<layer id="268" name="FeatureExtractor/MobilenetV2/Conv_1/BatchNorm/batchnorm/sub/_37__cf__40/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="4436500" shape="1,1280,1,1" size="2560"/>
+			<data element_type="f32" offset="8872944" shape="1,1280,1,1" size="5120"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>1</dim>
@@ -4907,7 +4907,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -4926,7 +4926,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -4934,10 +4934,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="271" name="2443924442_const" type="Const" version="opset1">
-			<data element_type="f16" offset="4439060" shape="1280,1,1,3,3" size="23040"/>
+		<layer id="271" name="2447924482_const" type="Const" version="opset1">
+			<data element_type="f32" offset="8878064" shape="1280,1,1,3,3" size="46080"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1280</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -4964,7 +4964,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -4973,9 +4973,9 @@
 			</output>
 		</layer>
 		<layer id="273" name="data_add_1568515690/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="4462100" shape="1,1280,1,1" size="2560"/>
+			<data element_type="f32" offset="8924144" shape="1,1280,1,1" size="5120"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>1</dim>
@@ -4999,7 +4999,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -5018,7 +5018,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -5027,9 +5027,9 @@
 			</output>
 		</layer>
 		<layer id="276" name="BoxPredictor_1/BoxEncodingPredictor/weights/read/_221__cf__224/ReshapeBack/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="4464660" shape="24,1280,1,1" size="61440"/>
+			<data element_type="f32" offset="8929264" shape="24,1280,1,1" size="122880"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>1280</dim>
 					<dim>1</dim>
@@ -5054,7 +5054,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>10</dim>
@@ -5063,9 +5063,9 @@
 			</output>
 		</layer>
 		<layer id="278" name="BoxPredictor_1/BoxEncodingPredictor/biases/read/_220__cf__223/ReshapeBack/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="4526100" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="9052144" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -5089,7 +5089,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>10</dim>
@@ -5097,8 +5097,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="280" name="BoxPredictor_1/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_124988_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="280" name="BoxPredictor_1/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125060_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -5118,7 +5118,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>10</dim>
 					<dim>10</dim>
@@ -5126,8 +5126,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="282" name="BoxPredictor_1/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125066_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206076" shape="3" size="24"/>
+		<layer id="282" name="BoxPredictor_1/BoxEncodingPredictor/BiasAdd/Reshape/Cast_124976_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412120" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5148,7 +5148,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>600</dim>
 					<dim>4</dim>
@@ -5156,9 +5156,9 @@
 			</output>
 		</layer>
 		<layer id="284" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_2_1x1_256/weights/read/_35__cf__38/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="4526148" shape="256,1280,1,1" size="655360"/>
+			<data element_type="f32" offset="9052240" shape="256,1280,1,1" size="1310720"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>1280</dim>
 					<dim>1</dim>
@@ -5183,7 +5183,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>10</dim>
@@ -5192,9 +5192,9 @@
 			</output>
 		</layer>
 		<layer id="286" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_2_1x1_256/BatchNorm/batchnorm/sub/_34__cf__37/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5181508" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="10362960" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5218,7 +5218,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>10</dim>
@@ -5237,7 +5237,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>10</dim>
@@ -5245,10 +5245,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="289" name="2441124414_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5182020" shape="256,1,1,3,3" size="4608"/>
+		<layer id="289" name="2443124434_const" type="Const" version="opset1">
+			<data element_type="f32" offset="10363984" shape="256,1,1,3,3" size="9216"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -5275,7 +5275,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>5</dim>
@@ -5284,9 +5284,9 @@
 			</output>
 		</layer>
 		<layer id="291" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_2_3x3_s2_512_depthwise/BatchNorm/batchnorm/sub/_31__cf__34/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5186628" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="10373200" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5310,7 +5310,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>5</dim>
@@ -5329,7 +5329,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>5</dim>
@@ -5338,9 +5338,9 @@
 			</output>
 		</layer>
 		<layer id="294" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_2_3x3_s2_512/weights/read/_29__cf__32/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5187140" shape="512,256,1,1" size="262144"/>
+			<data element_type="f32" offset="10374224" shape="512,256,1,1" size="524288"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>512</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5365,7 +5365,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -5374,9 +5374,9 @@
 			</output>
 		</layer>
 		<layer id="296" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_2_3x3_s2_512/BatchNorm/batchnorm/sub/_28__cf__31/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5449284" shape="1,512,1,1" size="1024"/>
+			<data element_type="f32" offset="10898512" shape="1,512,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -5400,7 +5400,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -5419,7 +5419,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -5427,10 +5427,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="299" name="2443524438_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5450308" shape="512,1,1,3,3" size="9216"/>
+		<layer id="299" name="2440724410_const" type="Const" version="opset1">
+			<data element_type="f32" offset="10900560" shape="512,1,1,3,3" size="18432"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>512</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -5457,7 +5457,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -5466,9 +5466,9 @@
 			</output>
 		</layer>
 		<layer id="301" name="data_add_1570115706/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5459524" shape="1,512,1,1" size="1024"/>
+			<data element_type="f32" offset="10918992" shape="1,512,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -5492,7 +5492,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -5511,7 +5511,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -5520,9 +5520,9 @@
 			</output>
 		</layer>
 		<layer id="304" name="BoxPredictor_2/BoxEncodingPredictor/weights/read/_214__cf__217/ReshapeBack/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5460548" shape="24,512,1,1" size="24576"/>
+			<data element_type="f32" offset="10921040" shape="24,512,1,1" size="49152"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -5547,7 +5547,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>5</dim>
@@ -5556,9 +5556,9 @@
 			</output>
 		</layer>
 		<layer id="306" name="BoxPredictor_2/BoxEncodingPredictor/biases/read/_213__cf__216/ReshapeBack/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5485124" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="10970192" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -5582,7 +5582,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>5</dim>
@@ -5590,8 +5590,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="308" name="BoxPredictor_2/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_124990_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="308" name="BoxPredictor_2/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125062_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -5611,7 +5611,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>5</dim>
 					<dim>5</dim>
@@ -5619,8 +5619,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="310" name="BoxPredictor_2/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125090_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206076" shape="3" size="24"/>
+		<layer id="310" name="BoxPredictor_2/BoxEncodingPredictor/BiasAdd/Reshape/Cast_124966_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412120" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -5641,7 +5641,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>150</dim>
 					<dim>4</dim>
@@ -5649,9 +5649,9 @@
 			</output>
 		</layer>
 		<layer id="312" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_3_1x1_128/weights/read/_26__cf__29/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5485172" shape="128,512,1,1" size="131072"/>
+			<data element_type="f32" offset="10970288" shape="128,512,1,1" size="262144"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -5676,7 +5676,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>5</dim>
@@ -5685,9 +5685,9 @@
 			</output>
 		</layer>
 		<layer id="314" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_3_1x1_128/BatchNorm/batchnorm/sub/_25__cf__28/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5616244" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="11232432" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -5711,7 +5711,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>5</dim>
@@ -5730,7 +5730,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>5</dim>
@@ -5738,10 +5738,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="317" name="2447524478_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5616500" shape="128,1,1,3,3" size="2304"/>
+		<layer id="317" name="2437524378_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11232944" shape="128,1,1,3,3" size="4608"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -5768,7 +5768,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5777,9 +5777,9 @@
 			</output>
 		</layer>
 		<layer id="319" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_3_3x3_s2_256_depthwise/BatchNorm/batchnorm/sub/_22__cf__25/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5618804" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="11237552" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -5803,7 +5803,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5822,7 +5822,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -5831,9 +5831,9 @@
 			</output>
 		</layer>
 		<layer id="322" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_3_3x3_s2_256/weights/read/_20__cf__23/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5619060" shape="256,128,1,1" size="65536"/>
+			<data element_type="f32" offset="11238064" shape="256,128,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -5858,7 +5858,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5867,9 +5867,9 @@
 			</output>
 		</layer>
 		<layer id="324" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_3_3x3_s2_256/BatchNorm/batchnorm/sub/_19__cf__22/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5684596" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="11369136" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5893,7 +5893,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5912,7 +5912,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5920,10 +5920,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="327" name="2441524418_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5685108" shape="256,1,1,3,3" size="4608"/>
+		<layer id="327" name="2449524498_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11370160" shape="256,1,1,3,3" size="9216"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -5950,7 +5950,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -5959,9 +5959,9 @@
 			</output>
 		</layer>
 		<layer id="329" name="data_add_1571715722/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5689716" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="11379376" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -5985,7 +5985,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -6004,7 +6004,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -6013,9 +6013,9 @@
 			</output>
 		</layer>
 		<layer id="332" name="BoxPredictor_3/BoxEncodingPredictor/weights/read/_207__cf__210/ReshapeBack/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5690228" shape="24,256,1,1" size="12288"/>
+			<data element_type="f32" offset="11380400" shape="24,256,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -6040,7 +6040,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>3</dim>
@@ -6049,9 +6049,9 @@
 			</output>
 		</layer>
 		<layer id="334" name="BoxPredictor_3/BoxEncodingPredictor/biases/read/_206__cf__209/ReshapeBack/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5702516" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="11404976" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -6075,7 +6075,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>3</dim>
@@ -6083,8 +6083,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="336" name="BoxPredictor_3/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125052_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="336" name="BoxPredictor_3/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125002_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -6104,7 +6104,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>3</dim>
 					<dim>3</dim>
@@ -6112,8 +6112,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="338" name="BoxPredictor_3/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125058_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206076" shape="3" size="24"/>
+		<layer id="338" name="BoxPredictor_3/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125082_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412120" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -6134,7 +6134,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>54</dim>
 					<dim>4</dim>
@@ -6142,9 +6142,9 @@
 			</output>
 		</layer>
 		<layer id="340" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_4_1x1_128/weights/read/_17__cf__20/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5702564" shape="128,256,1,1" size="65536"/>
+			<data element_type="f32" offset="11405072" shape="128,256,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -6169,7 +6169,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -6178,9 +6178,9 @@
 			</output>
 		</layer>
 		<layer id="342" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_4_1x1_128/BatchNorm/batchnorm/sub/_16__cf__19/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5768100" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="11536144" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6204,7 +6204,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -6223,7 +6223,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>3</dim>
@@ -6231,10 +6231,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="345" name="2439924402_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5768356" shape="128,1,1,3,3" size="2304"/>
+		<layer id="345" name="2450324506_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11536656" shape="128,1,1,3,3" size="4608"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -6261,7 +6261,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>2</dim>
@@ -6270,9 +6270,9 @@
 			</output>
 		</layer>
 		<layer id="347" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_4_3x3_s2_256_depthwise/BatchNorm/batchnorm/sub/_13__cf__16/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5770660" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="11541264" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6296,7 +6296,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>2</dim>
@@ -6315,7 +6315,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>2</dim>
@@ -6324,9 +6324,9 @@
 			</output>
 		</layer>
 		<layer id="350" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_4_3x3_s2_256/weights/read/_11__cf__14/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5770916" shape="256,128,1,1" size="65536"/>
+			<data element_type="f32" offset="11541776" shape="256,128,1,1" size="131072"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6351,7 +6351,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -6360,9 +6360,9 @@
 			</output>
 		</layer>
 		<layer id="352" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_4_3x3_s2_256/BatchNorm/batchnorm/sub/_10__cf__13/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5836452" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="11672848" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -6386,7 +6386,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -6405,7 +6405,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -6413,10 +6413,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="355" name="2444324446_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5836964" shape="256,1,1,3,3" size="4608"/>
+		<layer id="355" name="2449124494_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11673872" shape="256,1,1,3,3" size="9216"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -6443,7 +6443,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -6452,9 +6452,9 @@
 			</output>
 		</layer>
 		<layer id="357" name="data_add_1573315738/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5841572" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="11683088" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -6478,7 +6478,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -6497,7 +6497,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -6506,9 +6506,9 @@
 			</output>
 		</layer>
 		<layer id="360" name="BoxPredictor_4/BoxEncodingPredictor/weights/read/_200__cf__203/ReshapeBack/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5842084" shape="24,256,1,1" size="12288"/>
+			<data element_type="f32" offset="11684112" shape="24,256,1,1" size="24576"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -6533,7 +6533,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>2</dim>
@@ -6542,9 +6542,9 @@
 			</output>
 		</layer>
 		<layer id="362" name="BoxPredictor_4/BoxEncodingPredictor/biases/read/_199__cf__202/ReshapeBack/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5854372" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="11708688" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -6568,7 +6568,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>2</dim>
@@ -6576,8 +6576,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="364" name="BoxPredictor_4/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_124980_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="364" name="BoxPredictor_4/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125000_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -6597,7 +6597,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>2</dim>
 					<dim>2</dim>
@@ -6605,8 +6605,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="366" name="BoxPredictor_4/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125064_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206076" shape="3" size="24"/>
+		<layer id="366" name="BoxPredictor_4/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125014_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412120" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -6627,7 +6627,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>4</dim>
@@ -6635,9 +6635,9 @@
 			</output>
 		</layer>
 		<layer id="368" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_5_1x1_64/weights/read/_8__cf__11/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5854420" shape="64,256,1,1" size="32768"/>
+			<data element_type="f32" offset="11708784" shape="64,256,1,1" size="65536"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>64</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -6662,7 +6662,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>2</dim>
@@ -6671,9 +6671,9 @@
 			</output>
 		</layer>
 		<layer id="370" name="FeatureExtractor/MobilenetV2/layer_19_1_Conv2d_5_1x1_64/BatchNorm/batchnorm/sub/_7__cf__10/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5887188" shape="1,64,1,1" size="128"/>
+			<data element_type="f32" offset="11774320" shape="1,64,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -6697,7 +6697,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>2</dim>
@@ -6716,7 +6716,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>2</dim>
@@ -6724,10 +6724,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="373" name="2445124454_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5887316" shape="64,1,1,3,3" size="1152"/>
+		<layer id="373" name="2441524418_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11774576" shape="64,1,1,3,3" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>64</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -6754,7 +6754,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -6763,9 +6763,9 @@
 			</output>
 		</layer>
 		<layer id="375" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_5_3x3_s2_128_depthwise/BatchNorm/batchnorm/sub/_4__cf__7/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5888468" shape="1,64,1,1" size="128"/>
+			<data element_type="f32" offset="11776880" shape="1,64,1,1" size="256"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -6789,7 +6789,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -6808,7 +6808,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -6817,9 +6817,9 @@
 			</output>
 		</layer>
 		<layer id="378" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_5_3x3_s2_128/weights/read/_2__cf__5/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5888596" shape="128,64,1,1" size="16384"/>
+			<data element_type="f32" offset="11777136" shape="128,64,1,1" size="32768"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>64</dim>
 					<dim>1</dim>
@@ -6844,7 +6844,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6853,9 +6853,9 @@
 			</output>
 		</layer>
 		<layer id="380" name="FeatureExtractor/MobilenetV2/layer_19_2_Conv2d_5_3x3_s2_128/BatchNorm/batchnorm/sub/_1__cf__4/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5904980" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="11809904" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6879,7 +6879,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6898,7 +6898,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6906,10 +6906,10 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="383" name="2438324386_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5905236" shape="128,1,1,3,3" size="2304"/>
+		<layer id="383" name="2448724490_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11810416" shape="128,1,1,3,3" size="4608"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -6936,7 +6936,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6945,9 +6945,9 @@
 			</output>
 		</layer>
 		<layer id="385" name="data_add_1574915754/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5907540" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="11815024" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6971,7 +6971,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6990,7 +6990,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -6999,9 +6999,9 @@
 			</output>
 		</layer>
 		<layer id="388" name="BoxPredictor_5/BoxEncodingPredictor/weights/read/_193__cf__196/ReshapeBack/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5907796" shape="24,128,1,1" size="6144"/>
+			<data element_type="f32" offset="11815536" shape="24,128,1,1" size="12288"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>24</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -7026,7 +7026,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -7035,9 +7035,9 @@
 			</output>
 		</layer>
 		<layer id="390" name="BoxPredictor_5/BoxEncodingPredictor/biases/read/_192__cf__195/ReshapeBack/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5913940" shape="1,24,1,1" size="48"/>
+			<data element_type="f32" offset="11827824" shape="1,24,1,1" size="96"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -7061,7 +7061,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>1</dim>
@@ -7070,7 +7070,7 @@
 			</output>
 		</layer>
 		<layer id="392" name="BoxPredictor_5/BoxEncodingPredictor/BiasAdd/Add/Transpose/Cast_125050_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -7090,7 +7090,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -7098,8 +7098,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="394" name="BoxPredictor_5/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125020_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206076" shape="3" size="24"/>
+		<layer id="394" name="BoxPredictor_5/BoxEncodingPredictor/BiasAdd/Reshape/Cast_125046_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412120" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -7120,7 +7120,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>6</dim>
 					<dim>4</dim>
@@ -7162,15 +7162,15 @@
 				</port>
 			</input>
 			<output>
-				<port id="6" precision="FP16">
+				<port id="6" precision="FP32">
 					<dim>1</dim>
 					<dim>1917</dim>
 					<dim>4</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="397" name="do_reshape_loc/Cast_124986_const" type="Const" version="opset1">
-			<data element_type="i64" offset="5913988" shape="2" size="16"/>
+		<layer id="397" name="do_reshape_loc/Cast_124998_const" type="Const" version="opset1">
+			<data element_type="i64" offset="11827920" shape="2" size="16"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>2</dim>
@@ -7190,16 +7190,16 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>7668</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="399" name="2437924382_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5914004" shape="576,1,1,3,3" size="10368"/>
+		<layer id="399" name="2441924422_const" type="Const" version="opset1">
+			<data element_type="f32" offset="11827936" shape="576,1,1,3,3" size="20736"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>576</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -7226,7 +7226,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -7235,9 +7235,9 @@
 			</output>
 		</layer>
 		<layer id="401" name="data_add_15666/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="5924372" shape="1,576,1,1" size="1152"/>
+			<data element_type="f32" offset="11848672" shape="1,576,1,1" size="2304"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -7261,7 +7261,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -7280,7 +7280,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>576</dim>
 					<dim>19</dim>
@@ -7289,9 +7289,9 @@
 			</output>
 		</layer>
 		<layer id="404" name="BoxPredictor_0/ClassPredictor/weights/read/_243__cf__246/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="5925524" shape="273,576,1,1" size="314496"/>
+			<data element_type="f32" offset="11850976" shape="273,576,1,1" size="628992"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>273</dim>
 					<dim>576</dim>
 					<dim>1</dim>
@@ -7316,7 +7316,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>273</dim>
 					<dim>19</dim>
@@ -7325,9 +7325,9 @@
 			</output>
 		</layer>
 		<layer id="406" name="BoxPredictor_0/ClassPredictor/biases/read/_242__cf__245/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="6240020" shape="1,273,1,1" size="546"/>
+			<data element_type="f32" offset="12479968" shape="1,273,1,1" size="1092"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>273</dim>
 					<dim>1</dim>
@@ -7351,7 +7351,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>273</dim>
 					<dim>19</dim>
@@ -7359,8 +7359,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="408" name="BoxPredictor_0/ClassPredictor/BiasAdd/Add/Transpose/Cast_125018_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="408" name="BoxPredictor_0/ClassPredictor/BiasAdd/Add/Transpose/Cast_125084_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -7380,7 +7380,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>19</dim>
 					<dim>19</dim>
@@ -7388,8 +7388,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="410" name="BoxPredictor_0/ClassPredictor/BiasAdd/Reshape/Cast_125010_const" type="Const" version="opset1">
-			<data element_type="i64" offset="6240566" shape="3" size="24"/>
+		<layer id="410" name="BoxPredictor_0/ClassPredictor/BiasAdd/Reshape/Cast_125022_const" type="Const" version="opset1">
+			<data element_type="i64" offset="12481060" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -7410,17 +7410,17 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1083</dim>
 					<dim>91</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="412" name="2440724410_const" type="Const" version="opset1">
-			<data element_type="f16" offset="6240590" shape="1280,1,1,3,3" size="23040"/>
+		<layer id="412" name="2440324406_const" type="Const" version="opset1">
+			<data element_type="f32" offset="12481084" shape="1280,1,1,3,3" size="46080"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1280</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -7447,7 +7447,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -7456,9 +7456,9 @@
 			</output>
 		</layer>
 		<layer id="414" name="data_add_1567715682/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="6263630" shape="1,1280,1,1" size="2560"/>
+			<data element_type="f32" offset="12527164" shape="1,1280,1,1" size="5120"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>1</dim>
@@ -7482,7 +7482,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -7501,7 +7501,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1280</dim>
 					<dim>10</dim>
@@ -7510,9 +7510,9 @@
 			</output>
 		</layer>
 		<layer id="417" name="BoxPredictor_1/ClassPredictor/weights/read/_278__cf__281/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="6266190" shape="546,1280,1,1" size="1397760"/>
+			<data element_type="f32" offset="12532284" shape="546,1280,1,1" size="2795520"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>546</dim>
 					<dim>1280</dim>
 					<dim>1</dim>
@@ -7537,7 +7537,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>10</dim>
@@ -7546,9 +7546,9 @@
 			</output>
 		</layer>
 		<layer id="419" name="BoxPredictor_1/ClassPredictor/biases/read/_277__cf__280/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="7663950" shape="1,546,1,1" size="1092"/>
+			<data element_type="f32" offset="15327804" shape="1,546,1,1" size="2184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -7572,7 +7572,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>10</dim>
@@ -7580,8 +7580,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="421" name="BoxPredictor_1/ClassPredictor/BiasAdd/Add/Transpose/Cast_125060_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="421" name="BoxPredictor_1/ClassPredictor/BiasAdd/Add/Transpose/Cast_125016_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -7601,7 +7601,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>10</dim>
 					<dim>10</dim>
@@ -7609,8 +7609,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="423" name="BoxPredictor_1/ClassPredictor/BiasAdd/Reshape/Cast_125056_const" type="Const" version="opset1">
-			<data element_type="i64" offset="6240566" shape="3" size="24"/>
+		<layer id="423" name="BoxPredictor_1/ClassPredictor/BiasAdd/Reshape/Cast_125006_const" type="Const" version="opset1">
+			<data element_type="i64" offset="12481060" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -7631,17 +7631,17 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>600</dim>
 					<dim>91</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="425" name="2440324406_const" type="Const" version="opset1">
-			<data element_type="f16" offset="7665042" shape="512,1,1,3,3" size="9216"/>
+		<layer id="425" name="2441124414_const" type="Const" version="opset1">
+			<data element_type="f32" offset="15329988" shape="512,1,1,3,3" size="18432"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>512</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -7668,7 +7668,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -7677,9 +7677,9 @@
 			</output>
 		</layer>
 		<layer id="427" name="data_add_1569315698/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="7674258" shape="1,512,1,1" size="1024"/>
+			<data element_type="f32" offset="15348420" shape="1,512,1,1" size="2048"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -7703,7 +7703,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -7722,7 +7722,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>512</dim>
 					<dim>5</dim>
@@ -7731,9 +7731,9 @@
 			</output>
 		</layer>
 		<layer id="430" name="BoxPredictor_2/ClassPredictor/weights/read/_271__cf__274/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="7675282" shape="546,512,1,1" size="559104"/>
+			<data element_type="f32" offset="15350468" shape="546,512,1,1" size="1118208"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>546</dim>
 					<dim>512</dim>
 					<dim>1</dim>
@@ -7758,7 +7758,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>5</dim>
@@ -7767,9 +7767,9 @@
 			</output>
 		</layer>
 		<layer id="432" name="BoxPredictor_2/ClassPredictor/biases/read/_270__cf__273/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8234386" shape="1,546,1,1" size="1092"/>
+			<data element_type="f32" offset="16468676" shape="1,546,1,1" size="2184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -7793,7 +7793,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>5</dim>
@@ -7801,8 +7801,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="434" name="BoxPredictor_2/ClassPredictor/BiasAdd/Add/Transpose/Cast_125062_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="434" name="BoxPredictor_2/ClassPredictor/BiasAdd/Add/Transpose/Cast_124996_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -7822,7 +7822,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>5</dim>
 					<dim>5</dim>
@@ -7830,8 +7830,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="436" name="BoxPredictor_2/ClassPredictor/BiasAdd/Reshape/Cast_124982_const" type="Const" version="opset1">
-			<data element_type="i64" offset="6240566" shape="3" size="24"/>
+		<layer id="436" name="BoxPredictor_2/ClassPredictor/BiasAdd/Reshape/Cast_125026_const" type="Const" version="opset1">
+			<data element_type="i64" offset="12481060" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -7852,17 +7852,17 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>150</dim>
 					<dim>91</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="438" name="2438724390_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8235478" shape="256,1,1,3,3" size="4608"/>
+		<layer id="438" name="2447124474_const" type="Const" version="opset1">
+			<data element_type="f32" offset="16470860" shape="256,1,1,3,3" size="9216"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -7889,7 +7889,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -7898,9 +7898,9 @@
 			</output>
 		</layer>
 		<layer id="440" name="data_add_1570915714/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8240086" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="16480076" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -7924,7 +7924,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -7943,7 +7943,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>3</dim>
@@ -7952,9 +7952,9 @@
 			</output>
 		</layer>
 		<layer id="443" name="BoxPredictor_3/ClassPredictor/weights/read/_264__cf__267/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="8240598" shape="546,256,1,1" size="279552"/>
+			<data element_type="f32" offset="16481100" shape="546,256,1,1" size="559104"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>546</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -7979,7 +7979,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>3</dim>
@@ -7988,9 +7988,9 @@
 			</output>
 		</layer>
 		<layer id="445" name="BoxPredictor_3/ClassPredictor/biases/read/_263__cf__266/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8520150" shape="1,546,1,1" size="1092"/>
+			<data element_type="f32" offset="17040204" shape="1,546,1,1" size="2184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -8014,7 +8014,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>3</dim>
@@ -8022,8 +8022,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="447" name="BoxPredictor_3/ClassPredictor/BiasAdd/Add/Transpose/Cast_125014_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="447" name="BoxPredictor_3/ClassPredictor/BiasAdd/Add/Transpose/Cast_125018_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -8043,7 +8043,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>3</dim>
 					<dim>3</dim>
@@ -8051,8 +8051,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="449" name="BoxPredictor_3/ClassPredictor/BiasAdd/Reshape/Cast_125068_const" type="Const" version="opset1">
-			<data element_type="i64" offset="6240566" shape="3" size="24"/>
+		<layer id="449" name="BoxPredictor_3/ClassPredictor/BiasAdd/Reshape/Cast_125004_const" type="Const" version="opset1">
+			<data element_type="i64" offset="12481060" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -8073,17 +8073,17 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>54</dim>
 					<dim>91</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="451" name="2444724450_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8521242" shape="256,1,1,3,3" size="4608"/>
+		<layer id="451" name="2442724430_const" type="Const" version="opset1">
+			<data element_type="f32" offset="17042388" shape="256,1,1,3,3" size="9216"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>256</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -8110,7 +8110,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -8119,9 +8119,9 @@
 			</output>
 		</layer>
 		<layer id="453" name="data_add_1572515730/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8525850" shape="1,256,1,1" size="512"/>
+			<data element_type="f32" offset="17051604" shape="1,256,1,1" size="1024"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -8145,7 +8145,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -8164,7 +8164,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>256</dim>
 					<dim>2</dim>
@@ -8173,9 +8173,9 @@
 			</output>
 		</layer>
 		<layer id="456" name="BoxPredictor_4/ClassPredictor/weights/read/_257__cf__260/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="8526362" shape="546,256,1,1" size="279552"/>
+			<data element_type="f32" offset="17052628" shape="546,256,1,1" size="559104"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>546</dim>
 					<dim>256</dim>
 					<dim>1</dim>
@@ -8200,7 +8200,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>2</dim>
@@ -8209,9 +8209,9 @@
 			</output>
 		</layer>
 		<layer id="458" name="BoxPredictor_4/ClassPredictor/biases/read/_256__cf__259/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8805914" shape="1,546,1,1" size="1092"/>
+			<data element_type="f32" offset="17611732" shape="1,546,1,1" size="2184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -8235,7 +8235,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>2</dim>
@@ -8243,8 +8243,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="460" name="BoxPredictor_4/ClassPredictor/BiasAdd/Add/Transpose/Cast_124978_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="460" name="BoxPredictor_4/ClassPredictor/BiasAdd/Add/Transpose/Cast_125036_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -8264,7 +8264,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>2</dim>
 					<dim>2</dim>
@@ -8272,8 +8272,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="462" name="BoxPredictor_4/ClassPredictor/BiasAdd/Reshape/Cast_125016_const" type="Const" version="opset1">
-			<data element_type="i64" offset="6240566" shape="3" size="24"/>
+		<layer id="462" name="BoxPredictor_4/ClassPredictor/BiasAdd/Reshape/Cast_125058_const" type="Const" version="opset1">
+			<data element_type="i64" offset="12481060" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -8294,17 +8294,17 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>24</dim>
 					<dim>91</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="464" name="2442324426_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8807006" shape="128,1,1,3,3" size="2304"/>
+		<layer id="464" name="2439924402_const" type="Const" version="opset1">
+			<data element_type="f32" offset="17613916" shape="128,1,1,3,3" size="4608"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>128</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -8331,7 +8331,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -8340,9 +8340,9 @@
 			</output>
 		</layer>
 		<layer id="466" name="data_add_1574115746/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8809310" shape="1,128,1,1" size="256"/>
+			<data element_type="f32" offset="17618524" shape="1,128,1,1" size="512"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -8366,7 +8366,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -8385,7 +8385,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -8394,9 +8394,9 @@
 			</output>
 		</layer>
 		<layer id="469" name="BoxPredictor_5/ClassPredictor/weights/read/_250__cf__253/Output_0/Data__const" type="Const" version="opset1">
-			<data element_type="f16" offset="8809566" shape="546,128,1,1" size="139776"/>
+			<data element_type="f32" offset="17619036" shape="546,128,1,1" size="279552"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>546</dim>
 					<dim>128</dim>
 					<dim>1</dim>
@@ -8421,7 +8421,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -8430,9 +8430,9 @@
 			</output>
 		</layer>
 		<layer id="471" name="BoxPredictor_5/ClassPredictor/biases/read/_249__cf__252/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f16" offset="8949342" shape="1,546,1,1" size="1092"/>
+			<data element_type="f32" offset="17898588" shape="1,546,1,1" size="2184"/>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -8456,7 +8456,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>546</dim>
 					<dim>1</dim>
@@ -8464,8 +8464,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="473" name="BoxPredictor_5/ClassPredictor/BiasAdd/Add/Transpose/Cast_124984_const" type="Const" version="opset1">
-			<data element_type="i64" offset="1206044" shape="4" size="32"/>
+		<layer id="473" name="BoxPredictor_5/ClassPredictor/BiasAdd/Add/Transpose/Cast_125034_const" type="Const" version="opset1">
+			<data element_type="i64" offset="2412088" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -8485,7 +8485,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -8493,8 +8493,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="475" name="BoxPredictor_5/ClassPredictor/BiasAdd/Reshape/Cast_125054_const" type="Const" version="opset1">
-			<data element_type="i64" offset="6240566" shape="3" size="24"/>
+		<layer id="475" name="BoxPredictor_5/ClassPredictor/BiasAdd/Reshape/Cast_125038_const" type="Const" version="opset1">
+			<data element_type="i64" offset="12481060" shape="3" size="24"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>3</dim>
@@ -8515,7 +8515,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>6</dim>
 					<dim>91</dim>
@@ -8557,15 +8557,15 @@
 				</port>
 			</input>
 			<output>
-				<port id="6" precision="FP16">
+				<port id="6" precision="FP32">
 					<dim>1</dim>
 					<dim>1917</dim>
 					<dim>91</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="478" name="do_ExpandDims_conf/Cast_125012_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950434" shape="4" size="32"/>
+		<layer id="478" name="do_ExpandDims_conf/Cast_125024_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900772" shape="4" size="32"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>4</dim>
@@ -8585,7 +8585,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>1</dim>
 					<dim>1917</dim>
@@ -8603,7 +8603,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="1" precision="FP16">
+				<port id="1" precision="FP32">
 					<dim>1</dim>
 					<dim>1</dim>
 					<dim>1917</dim>
@@ -8611,8 +8611,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="481" name="do_reshape_conf/Cast_125036_const" type="Const" version="opset1">
-			<data element_type="i64" offset="5913988" shape="2" size="16"/>
+		<layer id="481" name="do_reshape_conf/Cast_125020_const" type="Const" version="opset1">
+			<data element_type="i64" offset="11827920" shape="2" size="16"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>2</dim>
@@ -8633,7 +8633,7 @@
 				</port>
 			</input>
 			<output>
-				<port id="2" precision="FP16">
+				<port id="2" precision="FP32">
 					<dim>1</dim>
 					<dim>174447</dim>
 				</port>
@@ -8654,7 +8654,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="484" name="26123" type="Convert" version="opset1">
+		<layer id="484" name="26111" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -8667,24 +8667,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="485" name="PriorBoxClustered_0/ss_0_port/Cast_124992_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="485" name="PriorBoxClustered_0/ss_0_port/Cast_125040_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="486" name="PriorBoxClustered_0/ss_0_port/Cast_224994_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="486" name="PriorBoxClustered_0/ss_0_port/Cast_225042_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="487" name="PriorBoxClustered_0/ss_0_port/Cast_324996_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="487" name="PriorBoxClustered_0/ss_0_port/Cast_325044_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -8741,7 +8741,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="491" name="26125" type="Convert" version="opset1">
+		<layer id="491" name="26113" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -8754,24 +8754,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="492" name="PriorBoxClustered_0/ss_1_port/Cast_125038_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="492" name="PriorBoxClustered_0/ss_1_port/Cast_125008_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="493" name="PriorBoxClustered_0/ss_1_port/Cast_225040_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="493" name="PriorBoxClustered_0/ss_1_port/Cast_225010_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="494" name="PriorBoxClustered_0/ss_1_port/Cast_325042_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="494" name="PriorBoxClustered_0/ss_1_port/Cast_325012_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -8830,8 +8830,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="498" name="PriorBoxClustered_0/unsqueeze/value19946_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950490" shape="1" size="8"/>
+		<layer id="498" name="PriorBoxClustered_0/unsqueeze/value19892_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900828" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -8871,7 +8871,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="501" name="26111" type="Convert" version="opset1">
+		<layer id="501" name="26103" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -8884,24 +8884,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="502" name="PriorBoxClustered_1/ss_0_port/Cast_124998_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="502" name="PriorBoxClustered_1/ss_0_port/Cast_125064_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="503" name="PriorBoxClustered_1/ss_0_port/Cast_225000_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="503" name="PriorBoxClustered_1/ss_0_port/Cast_225066_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="504" name="PriorBoxClustered_1/ss_0_port/Cast_325002_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="504" name="PriorBoxClustered_1/ss_0_port/Cast_325068_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -8958,7 +8958,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="508" name="26113" type="Convert" version="opset1">
+		<layer id="508" name="26105" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -8971,24 +8971,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="509" name="PriorBoxClustered_1/ss_1_port/Cast_125070_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="509" name="PriorBoxClustered_1/ss_1_port/Cast_124990_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="510" name="PriorBoxClustered_1/ss_1_port/Cast_225072_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="510" name="PriorBoxClustered_1/ss_1_port/Cast_224992_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="511" name="PriorBoxClustered_1/ss_1_port/Cast_325074_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="511" name="PriorBoxClustered_1/ss_1_port/Cast_324994_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9047,8 +9047,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="515" name="PriorBoxClustered_1/unsqueeze/value19892_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950490" shape="1" size="8"/>
+		<layer id="515" name="PriorBoxClustered_1/unsqueeze/value19856_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900828" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9088,7 +9088,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="518" name="26115" type="Convert" version="opset1">
+		<layer id="518" name="26119" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -9102,7 +9102,7 @@
 			</output>
 		</layer>
 		<layer id="519" name="PriorBoxClustered_2/ss_0_port/Cast_125028_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9110,7 +9110,7 @@
 			</output>
 		</layer>
 		<layer id="520" name="PriorBoxClustered_2/ss_0_port/Cast_225030_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9118,7 +9118,7 @@
 			</output>
 		</layer>
 		<layer id="521" name="PriorBoxClustered_2/ss_0_port/Cast_325032_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9175,7 +9175,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="525" name="26117" type="Convert" version="opset1">
+		<layer id="525" name="26121" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -9188,24 +9188,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="526" name="PriorBoxClustered_2/ss_1_port/Cast_125082_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="526" name="PriorBoxClustered_2/ss_1_port/Cast_125070_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="527" name="PriorBoxClustered_2/ss_1_port/Cast_225084_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="527" name="PriorBoxClustered_2/ss_1_port/Cast_225072_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="528" name="PriorBoxClustered_2/ss_1_port/Cast_325086_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="528" name="PriorBoxClustered_2/ss_1_port/Cast_325074_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9264,8 +9264,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="532" name="PriorBoxClustered_2/unsqueeze/value19910_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950490" shape="1" size="8"/>
+		<layer id="532" name="PriorBoxClustered_2/unsqueeze/value19928_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900828" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9305,7 +9305,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="535" name="26119" type="Convert" version="opset1">
+		<layer id="535" name="26115" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -9318,24 +9318,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="536" name="PriorBoxClustered_3/ss_0_port/Cast_124972_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="536" name="PriorBoxClustered_3/ss_0_port/Cast_125076_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="537" name="PriorBoxClustered_3/ss_0_port/Cast_224974_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="537" name="PriorBoxClustered_3/ss_0_port/Cast_225078_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="538" name="PriorBoxClustered_3/ss_0_port/Cast_324976_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="538" name="PriorBoxClustered_3/ss_0_port/Cast_325080_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9392,7 +9392,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="542" name="26121" type="Convert" version="opset1">
+		<layer id="542" name="26117" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -9405,24 +9405,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="543" name="PriorBoxClustered_3/ss_1_port/Cast_124966_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="543" name="PriorBoxClustered_3/ss_1_port/Cast_125086_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="544" name="PriorBoxClustered_3/ss_1_port/Cast_224968_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="544" name="PriorBoxClustered_3/ss_1_port/Cast_225088_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="545" name="PriorBoxClustered_3/ss_1_port/Cast_324970_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="545" name="PriorBoxClustered_3/ss_1_port/Cast_325090_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9481,8 +9481,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="549" name="PriorBoxClustered_3/unsqueeze/value19928_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950490" shape="1" size="8"/>
+		<layer id="549" name="PriorBoxClustered_3/unsqueeze/value19910_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900828" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9535,24 +9535,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="553" name="PriorBoxClustered_4/ss_0_port/Cast_125044_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="553" name="PriorBoxClustered_4/ss_0_port/Cast_124984_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="554" name="PriorBoxClustered_4/ss_0_port/Cast_225046_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="554" name="PriorBoxClustered_4/ss_0_port/Cast_224986_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="555" name="PriorBoxClustered_4/ss_0_port/Cast_325048_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="555" name="PriorBoxClustered_4/ss_0_port/Cast_324988_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9622,24 +9622,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="560" name="PriorBoxClustered_4/ss_1_port/Cast_125076_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="560" name="PriorBoxClustered_4/ss_1_port/Cast_124968_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="561" name="PriorBoxClustered_4/ss_1_port/Cast_225078_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="561" name="PriorBoxClustered_4/ss_1_port/Cast_224970_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="562" name="PriorBoxClustered_4/ss_1_port/Cast_325080_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="562" name="PriorBoxClustered_4/ss_1_port/Cast_324972_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9699,7 +9699,7 @@
 			</output>
 		</layer>
 		<layer id="566" name="PriorBoxClustered_4/unsqueeze/value19874_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950490" shape="1" size="8"/>
+			<data element_type="i64" offset="17900828" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9739,7 +9739,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="569" name="26103" type="Convert" version="opset1">
+		<layer id="569" name="26123" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -9752,24 +9752,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="570" name="PriorBoxClustered_5/ss_0_port/Cast_125004_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="570" name="PriorBoxClustered_5/ss_0_port/Cast_125052_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="571" name="PriorBoxClustered_5/ss_0_port/Cast_225006_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="571" name="PriorBoxClustered_5/ss_0_port/Cast_225054_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="572" name="PriorBoxClustered_5/ss_0_port/Cast_325008_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="572" name="PriorBoxClustered_5/ss_0_port/Cast_325056_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9826,7 +9826,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="576" name="26105" type="Convert" version="opset1">
+		<layer id="576" name="26125" type="Convert" version="opset1">
 			<data destination_type="i32"/>
 			<input>
 				<port id="0">
@@ -9839,24 +9839,24 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="577" name="PriorBoxClustered_5/ss_1_port/Cast_125022_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950466" shape="1" size="8"/>
+		<layer id="577" name="PriorBoxClustered_5/ss_1_port/Cast_124978_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900804" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="578" name="PriorBoxClustered_5/ss_1_port/Cast_225024_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950474" shape="1" size="8"/>
+		<layer id="578" name="PriorBoxClustered_5/ss_1_port/Cast_224980_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900812" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="579" name="PriorBoxClustered_5/ss_1_port/Cast_325026_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950482" shape="1" size="8"/>
+		<layer id="579" name="PriorBoxClustered_5/ss_1_port/Cast_324982_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900820" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -9915,8 +9915,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="583" name="PriorBoxClustered_5/unsqueeze/value19856_const" type="Const" version="opset1">
-			<data element_type="i64" offset="8950490" shape="1" size="8"/>
+		<layer id="583" name="PriorBoxClustered_5/unsqueeze/value19946_const" type="Const" version="opset1">
+			<data element_type="i64" offset="17900828" shape="1" size="8"/>
 			<output>
 				<port id="1" precision="I64">
 					<dim>1</dim>
@@ -10647,7 +10647,7 @@
 		<cli_parameters>
 			<blobs_as_inputs value="True"/>
 			<caffe_parser_path value="DIR"/>
-			<data_type value="FP16"/>
+			<data_type value="float"/>
 			<disable_nhwc_to_nchw value="False"/>
 			<disable_omitting_optional value="False"/>
 			<disable_resnet_optimization value="False"/>

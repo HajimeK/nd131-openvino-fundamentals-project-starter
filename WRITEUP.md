@@ -67,10 +67,118 @@ are generated.
 
 These models are copied to `model` folder in the repository.
 
+## Execute
+
+Running environment
+```
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              12
+On-line CPU(s) list: 0-11
+Thread(s) per core:  2
+Core(s) per socket:  6
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               158
+Model name:          Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+Stepping:            10
+CPU MHz:             2891.211
+
+```
+
+### Step 1 - Start the Mosca server
+
+```
+cd webservice/server/node-server
+node ./server.js
+```
+
+You should see the following message, if successful:
+```
+Mosca server started.
+```
+
+### Step 2 - Start the GUI
+
+Open new terminal and run below commands.
+```
+cd webservice/ui
+npm run dev
+```
+
+You should see the following message in the terminal.
+```
+webpack: Compiled successfully
+```
+
+### Step 3 - FFmpeg Server
+
+Open new terminal and run the below commands.
+```
+sudo ffserver -f ./ffmpeg/server.conf
+```
+
+### Step 4 - Run the code
+
+Open new terminal and run the below commands.
+```
+$ python main.py -i resources/Pedestrian_Detect_2_1_1.mp4 -m ./model/frozen_inference_graph.xml -d CPU -pt 0.1 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+/home/hajime/anaconda3/lib/python3.7/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.6 of module 'openvino.inference_engine.ie_api' does not match runtime version 3.7
+```
+
 ## Comparing Model Performance
 
 Accuracy of the model will decreased as here FP32 to FP16 conversion is selected, so that it could be run on Raspberry Pi.
 But the model size is shrinked from TnsorFlow 19.9MB to OpenVino 9.3MB.
+
+#### Running inference on CPU
+
+```
+count  1394.000000
+mean     14.670757
+std       6.659709
+min       6.623507
+25%       8.464396
+50%      11.833429
+75%      21.606565
+max      32.512903
+```
+
+#### Running inference on GPU
+
+When run on GPU with `-d GPU` option, the perfomce became worse.
+Mean inference time is 32.0 msec.
+
+```
+count  1394.000000
+mean     32.005926
+std       9.080464
+min      16.899586
+25%      23.486555
+50%      35.424709
+75%      41.862369
+max      45.317888
+```
+
+#### Intel Neural Compute Stick2
+
+When run on GPU with `-d MYRIAD` option, the perfomce is below.
+Mean inference time is 63.13 msec.
+What is interesting is std is 0.93 msec. There are little variance in inference time.
+
+```
+count  1394.000000
+mean     63.134159
+std       0.930729
+min      60.528994
+25%      62.531292
+50%      62.997341
+75%      63.622832
+max      67.390680
+```
 
 ## Demo
 
@@ -82,6 +190,12 @@ If you cannot see it in your browser, please directly open video/ui.mp4 in this 
 
 ## Assess Model Use Cases
 
+We have recently (2020/06) opening office after lockdown by COVID-16.
+To open office, we are requested to track number of people in the office.
+Without recording the video in the edge devices or server, we can only record the number of people with this model.
+
+This will provide solution for this request with this model.
+
 Object detection and counter is helpful, as it helps avoid storing video stream itself in the IoT Platform.
 Instead, meaningful data, in this case people count and duration, is uploaded and stored.
 In most cases, storage is the cost part in the IoT use cases, and it is good if we can store only meaningful data in the storage.
@@ -91,7 +205,62 @@ Edge AI is expected in this area to mitigate data trasmission and storage costs.
 
 ## Assess Effects on End User Needs
 
-This person is not detected when he stands still. Could be this person wears the black clothes.
+This person is not detected when he stands still.
 ![](images/person_not_working.png)
 Could work if the background is removed and properly color scales are changed.
 
+### Preprocessin the image - no effect
+
+Input source (images) quality might help improve detection.
+Lghting and camera focal length/image size might help.
+
+With an assumption that the poor contrast because of the black clothes the person wears is harmful in this case,
+tried to increase the contrast by image process in OpenCV.
+
+Tried to reprocess the image to be a higher contrast image with the following code snippet.
+The brightness is adjusted.
+```
+    hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    h, s, b = cv2.split(hsv)
+    b = cv2.equalizeHist(b)
+    hsv = cv2.merge((h,s,b))
+    img = cv2.cvtColor(img, cv2.COLOR_HSV2RGB)
+```
+But this did not increase the detection performance for this persom.
+
+### Detection Precision from 0.6 to 0.1 - effective
+
+When running with `-pt 0.1`, the person starts getting detected.
+This improves the total peopler count, as even for other people, dropping from detection is decreased.
+So the time when not counted is increased.
+
+### Improvement
+
+This would be a image processing technique, but when the diff between the consequtive frames is small enough,
+we can keep the detection result from the previous frames.
+Instead of infering, total number of people could be improved by this.
+
+## Other model - person-detection-retail-0013
+
+Intel provides pretrained models.
+I have used a model below.
+https://docs.openvinotoolkit.org/latest/_models_intel_person_detection_retail_0013_description_person_detection_retail_0013.html
+
+The executable repository is provided 
+https://github.com/intel-iot-devkit/people-counter-python
+
+Performance in inference time and detection is better than the one I have downloaded.
+```
+count  1394.000000
+mean     16.608900
+std       7.336377
+min       7.537842
+25%       9.477377
+50%      14.140725
+75%      23.314655
+max      40.088177
+```
+
+The perfomrance of this model is better as it reduced the amount of computation in its model eplanation.
+Also my selected model is leaned from COCO 2017 model. It is intended to train multiple types of objects (like chairs, toothbrushes, and etc.).
+Might the accuracy be improved by trainning with moder peson images.
