@@ -138,13 +138,13 @@ But the model size is shrinked from TnsorFlow 19.9MB to OpenVino 9.3MB.
 
 ```
 count  1394.000000
-mean     14.670757
-std       6.659709
-min       6.623507
-25%       8.464396
-50%      11.833429
-75%      21.606565
-max      32.512903
+mean     14.860009
+std       5.434970
+min       6.984472
+25%       9.946406
+50%      13.394356
+75%      20.350635
+max      35.712481
 ```
 
 #### Running inference on GPU
@@ -154,13 +154,13 @@ Mean inference time is 32.0 msec.
 
 ```
 count  1394.000000
-mean     32.005926
-std       9.080464
-min      16.899586
-25%      23.486555
-50%      35.424709
-75%      41.862369
-max      45.317888
+mean     29.883362
+std       9.340245
+min      16.871214
+25%      22.423744
+50%      25.508761
+75%      39.971769
+max      45.503616
 ```
 
 #### Intel Neural Compute Stick2
@@ -187,6 +187,8 @@ If you cannot see it in your browser, please directly open video/ui.mp4 in this 
 
 <video src="video/ui.mp4" controls>video/ui.mp4</video>
 
+Finally, 5 people are detected (Avarage Duration 15 sec).
+![](images/result.png)
 
 ## Assess Model Use Cases
 
@@ -209,13 +211,14 @@ This person is not detected when he stands still.
 ![](images/person_not_working.png)
 Could work if the background is removed and properly color scales are changed.
 
-### Preprocessin the image - no effect
+### Preprocessin the image
 
-Input source (images) quality might help improve detection.
-Lghting and camera focal length/image size might help.
+INPUT source (images) quality might help improve detection.
+Lighting could change the brightness or hue of the images.
+Focal length could make images blurry.
+Small image size means low resolution, and it will affect model ability to detect small objects.
 
-With an assumption that the poor contrast because of the black clothes the person wears is harmful in this case,
-tried to increase the contrast by image process in OpenCV.
+Here to work with lighting condition, contrast sharpened by image process in OpenCV.
 
 Tried to reprocess the image to be a higher contrast image with the following code snippet.
 The brightness is adjusted.
@@ -226,7 +229,7 @@ The brightness is adjusted.
     hsv = cv2.merge((h,s,b))
     img = cv2.cvtColor(img, cv2.COLOR_HSV2RGB)
 ```
-But this did not increase the detection performance for this persom.
+But this did not increase the detection performance in this case.
 
 ### Detection Precision from 0.6 to 0.1 - effective
 
@@ -240,7 +243,35 @@ This would be a image processing technique, but when the diff between the conseq
 we can keep the detection result from the previous frames.
 Instead of infering, total number of people could be improved by this.
 
-## Other model - person-detection-retail-0013
+## Other model
+
+### ssd_mobilenet_v2_coco_2018_03_29
+
+Downloaded from 
+http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+
+Extracted the downloaded file, and under the foloder extracted, run the below command to get IR model.
+```
+python /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb  --data_type FP16 --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --transformations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+```
+
+Performance
+```
+count  1393.000000
+mean     23.212881
+std       8.917362
+min      12.145996
+25%      15.252829
+50%      20.102978
+75%      32.195807
+max      47.665596
+```
+
+Total number of people detected was 5. But the duration was worse, 12 sec, as more jitters while detecting the 3rd person.
+Inference time is a little longer than one employed this time.
+
+
+### person-detection-retail-0013
 
 Intel provides pretrained models.
 I have used a model below.

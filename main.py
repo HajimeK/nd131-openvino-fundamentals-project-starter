@@ -165,18 +165,23 @@ def connect_mqtt():
 
 def preprocess(n, c, h, w, img):
     input_shape = (n, c, h, w)
-    img = cv2.resize(img, (h, w))
+    img = cv2.resize(img, (w, h))
 
     hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
     h, s, b = cv2.split(hsv)
     b = cv2.equalizeHist(b)
     hsv = cv2.merge((h,s,b))
-    img = cv2.cvtColor(img, cv2.COLOR_HSV2RGB)
+    img = cv2.cvtColor(img, cv2.COLOR_HSV2BGR)
     img_data = np.array(img).astype(np.float32)
     img_data = np.transpose(img_data, [2, 0, 1])
     img_data = np.expand_dims(img_data, 0)
     #norm_img_data = np.zeros(img_data.shape).astype('float16')
     return img_data
+
+def evaluate_frame_diff(frame1, frame2):
+    im_diff = frame1.astype(int) - frame2.astype(int)
+    im_diff_abs = np.abs(im_diff)
+    return np.sum(im_diff_abs)
 
 def infer_on_stream(args, client):
     """
@@ -192,7 +197,13 @@ def infer_on_stream(args, client):
     current_count = 0
     last_count = 0
     total_count = 0
-    start_time = 0
+    #start_time = 0
+    #last_time = 0
+
+    start_X = 0
+    start_Y = 0
+    end_X = 0
+    end_Y = 0
     # Flag for the input image
     single_image_mode = False
     det_times_arr = []
@@ -230,9 +241,17 @@ def infer_on_stream(args, client):
     initial_h = cap.get(4)
 
     ### TODO: Loop until stream is over ###
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    start_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+    last_frame = start_frame
+    #log.error(start_frame)
+    
+    #last_time = time.time()
+    #start_time = time.time()
     while cap.isOpened():
         ### TODO: Read from the video capture ###
         flag, frame = cap.read()
+
         if not flag:
             break
         key_pressed = cv2.waitKey(60)
@@ -255,17 +274,13 @@ def infer_on_stream(args, client):
             ### TODO: Extract any desired stats from the results ###
             for detection in detections:
                 # If only the cifidence rate is above 0.5, then proceed
+                idx = detection[1]
                 confidence = detection[2]
-                if confidence > args.prob_threshold:
-                    # detection class
-                    idx = detection[1]
-                    if idx > 80:
-                        continue
+                if confidence > args.prob_threshold and idx ==1:
                     class_name = coco_classes[idx]
                     log.info(" "+str(idx) + " " + str(confidence) + " " + class_name)
-                    if int(idx) == 1: #only person 
-                        current_count += 1
-                        # Get the box to be displayed
+                    current_count += 1
+                    # Get the box to be displayed
                     axis = detection[3:7] * (initial_w, initial_h, initial_w, initial_h)
                     (start_X, start_Y, end_X, end_Y) = axis.astype(np.int)[:4]
                     cv2.rectangle(frame, (start_X, start_Y), (end_X, end_Y), (0, 55, 255), thickness=2)
@@ -276,24 +291,27 @@ def infer_on_stream(args, client):
             ### Topic "person": keys of "count" and "total" ###
             ### Topic "person/duration": key of "duration" ###
 
-            #frame, current_count = ssd_out(frame, result)
-            inf_time_message = "Inference time: {:.3f}ms"\
-                               .format(det_time * 1000)
-            cv2.putText(frame, inf_time_message, (15, 15),
-                        cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
-
-            # When new person enters the video
-            if current_count > last_count:
-                start_time = time.time()
-                total_count = total_count + current_count - last_count
-                client.publish("person", json.dumps({"total": total_count}))
-
             # Person duration in the video is calculated
             if current_count < last_count:
-                duration = int(time.time() - start_time)
-                # Publish messages to the MQTT server
-                client.publish("person/duration",
-                               json.dumps({"duration": duration}))
+                #last_time = time.time()
+                last_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+                #log.error(start_time - last_time)
+                #log.error((start_frame - last_frame)/fps)
+                if ((last_frame - start_frame)/fps) > 3.6:
+                    duration = (last_frame - start_frame)/fps
+                    #duration = time.time() - start_time
+                    #log.error(duration)
+                    # Publish messages to the MQTT server
+                    client.publish("person/duration",
+                               json.dumps({"duration": int(duration)}))
+            # When new person enters the video
+            elif current_count > last_count:
+                #start_time = time.time()
+                start_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+                if (start_frame - last_frame)/fps > 3.0:
+                    #log.error(start_time-last_time)
+                    total_count = total_count + current_count - last_count
+                    client.publish("person", json.dumps({"total": total_count}))
 
             client.publish("person", json.dumps({"count": current_count}))
             last_count = current_count
@@ -301,9 +319,15 @@ def infer_on_stream(args, client):
             if key_pressed == 27:
                 break
 
+            inf_time_message = "Inference time: {:.3f}ms"\
+                               .format(det_time * 1000)
+            cv2.putText(frame, inf_time_message, (15, 15),
+                        cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
+
+
         det_times_arr.append(det_time * 1000)
         ### TODO: Send the frame to the FFMPEG server ###
-        sys.stdout.buffer.write(frame)  
+        sys.stdout.buffer.write(frame)
         sys.stdout.flush()
 
         ### TODO: Write an output image if `single_image_mode` ###
