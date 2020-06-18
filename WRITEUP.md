@@ -245,6 +245,81 @@ Instead of infering, total number of people could be improved by this.
 
 ## Other model
 
+### NVIDIA SSD
+
+This is the pretrained model with PyTorch, provided in  https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/.
+Trained with COCO dataset, and used SSD with ResNet-50 as a backbone.
+The model was once converted to ONNX model and then to IR to run with ONNX.
+
+#### Set up envirohment.
+
+PyTorch environment is created on top-of anaconda environment.
+```
+$  conda create -n pytorch python=3.7 anaconda
+$  conda activate pytorch
+$  conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+$  conda install -c conda-forge onnx
+```
+
+#### Model Conversion
+In this environment run the following python script.
+```
+import torch
+
+precision = 'fp32'
+ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd', model_math=precision)
+
+dummy_input = torch.randn(10, 3, 300, 300, device='cpu')
+
+# Providing input and output names sets the display names for values
+# within the model's graph. Setting these does not change the semantics
+# of the graph; it is only for readabilitya
+#
+# The inputs to the network consist of the flat list of inputs (i.e.
+# the values you would pass to the forward() method) followed by the
+# flat list of parameters. You can partially specify names, i.e. provide
+# a list here shorter than the number of inputs to the model, and we will
+# only set that subset of names, starting from the beginning.
+input_names = [ "actual_input_1" ] + [ "learned_%d" % i for i in range(16) ]
+output_names = [ "output1" ]
+
+torch.onnx.export(ssd_model, dummy_input, "nvidia_ssd.onnx", verbose=True, input_names=input_names, output_names=output_names)
+```
+This will create a ONNX representation of the NVIDIA SSD model, nvidia_ssd.onnx.
+To convert ONNX model to IR for OpenVINO, run the following script.
+```
+python /opt/intel/openvino_2020.2.120/deployment_tools/model_optimizer/mo.py --input_model nvidia_ssd.onnx --data_type FP16
+-input_model nvidia_ssd.onnx --data_type FP16
+```
+I have run with FP16 option to be executable with OpenVINO on Raspberry Pi.
+
+
+#### Run the model
+To evaluate this model performance, run the following command.
+```
+python main_othermodel.py -i resources/Pedestrian_Detect_2_1_1.mp4 -m ./model/nvidia_ssd.xml -d CPU -pt 0.1 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+```
+
+Following is the execution time perfomrance.
+```
+count  1394.000000
+mean    122.872293
+std      27.871472
+min      81.460953
+25%      96.125364
+50%     122.553945
+75%     150.165439
+max     230.868101
+```
+(Detection is not evaluated, as the output is not clearly described in the document, and I could not extract the detected objects out of it.)
+
+#### Conclusion
+
+This model is not selected, as it cannot achieve the real-time capability with my PC environment.
+As you can find in the mean value, the average inference time is 122.87 msec, and this is slower in compared to the video frame rate(24fps).
+
+It might work with higer performance CPUs or NVIDIA GPU with original model.
+
 ### ssd_mobilenet_v2_coco_2018_03_29
 
 Downloaded from 
@@ -267,13 +342,17 @@ min      12.145996
 max      47.665596
 ```
 
+![](images/ssd_mobilenet_v2_coco_2018_03_29.png)
+
+#### Conclusion
+
+This model is not selected.
 Total number of people detected was 5. But the duration was worse, 12 sec, as more jitters while detecting the 3rd person.
 Inference time is a little longer than one employed this time.
 
-
 ### person-detection-retail-0013
 
-Intel provides pretrained models.
+Intel provides pretrained models. This is used as a reference.
 I have used a model below.
 https://docs.openvinotoolkit.org/latest/_models_intel_person_detection_retail_0013_description_person_detection_retail_0013.html
 
@@ -295,3 +374,5 @@ max      40.088177
 The perfomrance of this model is better as it reduced the amount of computation in its model eplanation.
 Also my selected model is leaned from COCO 2017 model. It is intended to train multiple types of objects (like chairs, toothbrushes, and etc.).
 Might the accuracy be improved by trainning with moder peson images.
+
+![](images/person-detection-retail-0013.png)
